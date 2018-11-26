@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Coins.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/GamePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MapManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Player$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/player_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/player_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_right_jump.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_still_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_still_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_left1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_left2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_right1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_right2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/player_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/player_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_right_jump.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_still_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_still_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_left1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_left2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_right1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_right2.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -190,7 +162,7 @@
     <session id="2137202329">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="2" />
@@ -458,7 +430,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Rousou/OneDrive - University of Cyprus/UNI/HMY 3o.1/HMY318/PUBG/Test/Test/src/bullet.png" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543255603420" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543255641991" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -517,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543245897300</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Hey">
+      <created>1543255637137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543255637137</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -531,6 +510,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.15831557" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.25" />
@@ -545,7 +525,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Messages" order="5" weight="0.3253796" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.21908894" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.21908894" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946696" weight="0.17462039" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
