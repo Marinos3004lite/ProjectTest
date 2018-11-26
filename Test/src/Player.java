@@ -273,7 +273,7 @@ public class Player extends JPanel implements ActionListener {
                 else
                     obj = rz_jump_left;
 
-                rz_y = rz_y - 1;   //Speed
+                rz_y = rz_y - 5;   //Speed
                 if (rz_y <= 50)
                     jump = false;
 
@@ -290,7 +290,7 @@ public class Player extends JPanel implements ActionListener {
                 else
                     obj = rz_jump_left;
 
-                rz_y = rz_y + 1;       //Speed
+                rz_y = rz_y + 5;       //Speed
 
                 if (rz_y <= 150)
                     map.bk_y -= 2;
