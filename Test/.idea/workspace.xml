@@ -2,14 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Ammo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ammo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/Coins.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/GamePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/MapManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/Player$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/player_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/player_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_right_jump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_still_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_still_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Test/razmazio/rz_walk_right2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coins.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Health.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Points.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Points.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/player_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/player_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_right_jump.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_still_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_still_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/razmazio/rz_walk_right2.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -171,27 +192,36 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="253" />
+          <entry key="java" value="826" />
+          <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="253" />
+          <entry key="JAVA" value="826" />
+          <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gif" value="2" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="2" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="2" />
+          <entry key="JAVA" value="2" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -206,8 +236,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1280">
-                  <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+                <state relative-caret-position="251">
+                  <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -218,7 +248,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Bullet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2280">
+                <state relative-caret-position="632">
                   <caret line="114" selection-start-line="114" selection-end-line="114" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -245,7 +275,7 @@
             <entry file="file://$PROJECT_DIR$/src/Razmazio.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="320">
-                  <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+                  <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
                   <folding>
                     <element signature="e#337#338#0" expanded="true" />
                     <element signature="e#381#382#0" expanded="true" />
@@ -257,8 +287,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/MapManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="400">
+                  <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -273,22 +303,17 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="80">
-                  <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+                <state relative-caret-position="1998">
+                  <caret line="237" column="17" lean-forward="true" selection-start-line="237" selection-start-column="17" selection-end-line="237" selection-end-column="17" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#9129#9130#0" expanded="true" />
-                    <element signature="e#9161#9162#0" expanded="true" />
-                    <element signature="e#9210#9211#0" expanded="true" />
-                    <element signature="e#9242#9243#0" expanded="true" />
+                    <element signature="e#9303#9304#0" expanded="true" />
+                    <element signature="e#9335#9336#0" expanded="true" />
+                    <element signature="e#9384#9385#0" expanded="true" />
+                    <element signature="e#9416#9417#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/razmazio/player_run.gif">
-              <provider selected="true" editor-type-id="images" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -316,19 +341,33 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Coins.java">
+            <entry file="file://$PROJECT_DIR$/src/Points.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+                <state relative-caret-position="320">
+                  <caret line="23" selection-start-line="23" selection-end-line="23" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Points.java">
+            <entry file="file://$PROJECT_DIR$/src/Coins.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                <state relative-caret-position="820">
+                  <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Sprite.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -369,13 +408,13 @@
         <option value="$PROJECT_DIR$/src/BulletL.java" />
         <option value="$PROJECT_DIR$/src/BulletR.java" />
         <option value="$PROJECT_DIR$/src/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/MapManager.java" />
         <option value="$PROJECT_DIR$/src/Ammo.java" />
-        <option value="$PROJECT_DIR$/src/Coins.java" />
         <option value="$PROJECT_DIR$/src/Health.java" />
         <option value="$PROJECT_DIR$/src/Points.java" />
-        <option value="$PROJECT_DIR$/src/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/Coins.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/MapManager.java" />
+        <option value="$PROJECT_DIR$/src/GamePanel.java" />
       </list>
     </option>
   </component>
@@ -409,18 +448,6 @@
               <item name="Test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="backgrounds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="razmazio" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -431,16 +458,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Rousou/OneDrive - University of Cyprus/UNI/HMY 3o.1/HMY318/PUBG/Test/Test/src/bullet.png" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543243365516" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543255603420" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rousou\OneDrive - University of Cyprus\UNI\HMY 3o.1\HMY318\PUBG\Test\Test\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Marinos\OneDrive\Univesity Files\5th Semester\HMY 318\Test\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marinos\Documents\GitHub\ProjectTest\Test\src" />
+      <recent name="C:\Users\Rousou\OneDrive - University of Cyprus\UNI\HMY 3o.1\HMY318\PUBG\Test\Test\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -482,6 +510,14 @@
       <option name="presentableId" value="Default" />
       <updated>1542445790831</updated>
     </task>
+    <task id="LOCAL-00001" summary="Hey">
+      <created>1543245897300</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543245897300</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -495,9 +531,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.15671642" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.15831557" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -510,7 +545,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Messages" order="5" weight="0.3253796" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.21908894" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.21908894" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946696" weight="0.17462039" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -527,6 +562,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Hey" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hey" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -567,9 +606,51 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Runnable.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/javax/swing/Timer.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.java" />
+    <entry file="file://$PROJECT_DIR$/src/razmazio/player_walk_right.gif" />
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3319" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/razmazio/player_run.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Health.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Points.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ammo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
+        <state relative-caret-position="632">
           <caret line="114" selection-start-line="114" selection-end-line="114" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -594,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/src/Razmazio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#381#382#0" expanded="true" />
@@ -602,20 +683,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Sprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ammo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -624,57 +694,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Coins.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Points.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="820">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Health.java">
+    <entry file="file://$PROJECT_DIR$/src/MapManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="400">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/razmazio/player_walk_right.gif">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="64" column="27" lean-forward="true" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+        <state relative-caret-position="251">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/razmazio/player_run.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+        <state relative-caret-position="1998">
+          <caret line="237" column="17" lean-forward="true" selection-start-line="237" selection-start-column="17" selection-end-line="237" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9129#9130#0" expanded="true" />
-            <element signature="e#9161#9162#0" expanded="true" />
-            <element signature="e#9210#9211#0" expanded="true" />
-            <element signature="e#9242#9243#0" expanded="true" />
+            <element signature="e#9303#9304#0" expanded="true" />
+            <element signature="e#9335#9336#0" expanded="true" />
+            <element signature="e#9384#9385#0" expanded="true" />
+            <element signature="e#9416#9417#0" expanded="true" />
           </folding>
         </state>
       </provider>

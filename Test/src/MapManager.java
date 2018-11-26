@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class MapManager extends JPanel
 {
-    private Image background;
+    public Image background;
     public int bk_x = 695; // background x and y coordinates
     public int bk_y = 0;
     private Image background2;
@@ -14,6 +14,8 @@ public class MapManager extends JPanel
     public int bk3_y = 535;
 
     final public int BKMIN_X = 1000, BKMAX_X = 10000; // Min and Max of
+
+    //Coins coins = new Coins();
 
     public MapManager()
     {
@@ -29,4 +31,10 @@ public class MapManager extends JPanel
         // relative to
         // character
     }
+
+    /*public void setCoin(Graphics g2d) {
+        g2d.drawImage(coins.coin, 4000 - bk_x, 10, null); // Drawing background
+        g2d.drawImage(coins.coin, 4150 - bk_x, 10, null); // Drawing background
+        g2d.drawImage(coins.coin, 4300 - bk_x, 10, null); // Drawing background
+    }// end*/
 }

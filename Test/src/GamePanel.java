@@ -21,10 +21,11 @@ public class GamePanel extends Player
 
         // setting background points and cash in the game
         map.setBackground(g2d);
-
         ammo.paintComponent(g2d);
-        coin.paintComponent(g2d);
+        //coin.paintComponent(g2d);
         point.paintComponent(g2d);
+
+        //map.setCoin(g2d);
         // checking jump collision and enemy death
 
         Thread j = new Thread(() -> {

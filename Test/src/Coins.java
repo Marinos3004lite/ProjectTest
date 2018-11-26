@@ -6,15 +6,19 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class Coins extends JPanel {
+public class Coins extends Sprite {
+
     public int coins;
+    public Image coin;
 
-    public Coins()
-    {
+    public Coins(int x, int y) {
+        super(x, y);
+        {
+            coin = new ImageIcon("src/razmazio\\coin.gif").getImage();
+            getImageDimensions();
+        }
 
-    }
-
-    void Add_Coins(int x){
+    /*void Add_Coins(int x){
         if(x >= 0) {
             this.coins = this.coins + x;
         }
@@ -23,8 +27,9 @@ public class Coins extends JPanel {
         if(x >= 0) {
             this.coins = this.coins - x;
         }
-    }
-    public void paintComponent(Graphics g) {
+    }*/
+
+    /*public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         //MapManager.background = new ImageIcon("src/backgrounds\\bkg5.png").getImage();
@@ -32,5 +37,6 @@ public class Coins extends JPanel {
         g.setColor(Color.BLACK);
         g.setFont(new Font("Monospaced", Font.BOLD, 20));
         g.drawString("COINS = " + coins,450, 60);
+    }*/
     }
 }
