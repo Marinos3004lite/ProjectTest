@@ -57,7 +57,5 @@ public class Ammo extends JPanel{
         g.setFont(new Font("Monospaced", Font.BOLD, 40));
             g.drawString("NO AMMO",800, 140);
         }
-
     }
-
 }

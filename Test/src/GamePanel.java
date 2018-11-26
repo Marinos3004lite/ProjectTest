@@ -44,10 +44,12 @@ public class GamePanel extends Player
             if (obj == rz_jump_right)
                 obj = rz_still_right;
         }
+
         g2d.drawImage(obj, rz_x, rz_y, this); // Drawing the character image
 
         hp.paintComponent(g2d);
         ArrayList bulletsL = getBulletsL();
+
         for (int w = 0; w < bulletsL.size(); w++)
         {
             Bullet m = (Bullet) bulletsL.get(w);

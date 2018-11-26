@@ -15,12 +15,12 @@ public class Coins extends JPanel {
     }
 
     void Add_Coins(int x){
-        if(x>=0) {
+        if(x >= 0) {
             this.coins = this.coins + x;
         }
     }
     void Sub_Coins(int x){
-        if(x>=0) {
+        if(x >= 0) {
             this.coins = this.coins - x;
         }
     }

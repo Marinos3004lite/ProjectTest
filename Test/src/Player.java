@@ -1,3 +1,4 @@
+import javafx.scene.layout.Background;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,9 +14,12 @@ public class Player extends JPanel implements ActionListener
     protected Image rz_still_right = new ImageIcon("src/razmazio\\player_right.png").getImage(); // Standing still
     protected Image rz_still_left = new ImageIcon("src/razmazio\\player_left.png").getImage(); // Walking left
     protected Image rz_walk_left2 = new ImageIcon("src/razmazio\\player_left.png").getImage(); //
-    protected Image rz_walk_right2 = new ImageIcon("src/razmazio\\player_right.png").getImage(); // Walking right
+    //protected Image rz_walk_right2 = new ImageIcon("src/razmazio\\player_right.png").getImage(); // Walking right
     protected Image rz_jump_right = new ImageIcon("src/razmazio\\player_right.png").getImage(); // Jumping
     protected Image rz_jump_left = new ImageIcon("src/razmazio\\player_left.png").getImage(); //
+    //protected Image rz_walk_right2;
+
+    protected Image rz_walk_right2 = new ImageIcon("src/razmazio/player_run.gif").getImage();
 
     protected Image obj = rz_still_right; // Temporary Image reference
     protected int rz_x = 500; // character x and y coordinates
@@ -25,6 +29,7 @@ public class Player extends JPanel implements ActionListener
 
     static ArrayList bulletsR;
     static ArrayList bulletsL;
+
     MapManager map = new MapManager();
     Health hp = new Health();
     Ammo ammo = new Ammo();
@@ -72,7 +77,6 @@ public class Player extends JPanel implements ActionListener
                     }
                     if ((kp.getKeyCode() == KeyEvent.VK_A ) & moveableLeft) {
                         direction = 3; // left
-
                     }
                     /*if ((kp.getKeyCode() == KeyEvent.VK_RIGHT & moveableRight)&& (kp.getKeyCode() == KeyEvent.VK_F)) {
                         direction = 2; // right
@@ -88,6 +92,7 @@ public class Player extends JPanel implements ActionListener
                         fireL();// fire
                         hp.takeDamage();
                     }*/
+
                     if(obj == rz_still_right  || obj == rz_walk_right2)
                     {
                         if ((kp.getKeyCode() == KeyEvent.VK_ENTER))
@@ -117,11 +122,11 @@ public class Player extends JPanel implements ActionListener
                             hp.takeDamage();
                         }
                     }
+
                     if ((kp.getKeyCode() == KeyEvent.VK_R) & moveableLeft) {
                         ammo.reload();// left
                         coin.Sub_Coins(10);
                         point.Sub_Points(10);
-
                     }
 
                     if ((kp.getKeyCode() == KeyEvent.VK_E) & moveableLeft) {
@@ -139,7 +144,6 @@ public class Player extends JPanel implements ActionListener
                                 jumpright = false;
                         }
                     }
-
                 } // end keyPressed
 
                 public void keyReleased(KeyEvent kr) {
@@ -152,7 +156,6 @@ public class Player extends JPanel implements ActionListener
                 }
             });// end anonymous class and KeyListener
         }// end constructor
-
 
     public void actionPerformed(ActionEvent e) {
 
@@ -176,11 +179,11 @@ public class Player extends JPanel implements ActionListener
             l.stop();
         }
 
-
         ArrayList bullets = Player.getBulletsR();
         ArrayList bulletss = Player.getBulletsL();
         Bullet m;
         Bullet m2;
+
         if(obj == rz_still_right  || obj == rz_walk_right2) {
             for (int w = 0; w < bullets.size(); w++) {
                 m = (Bullet) bullets.get(w);
@@ -191,6 +194,7 @@ public class Player extends JPanel implements ActionListener
                     bullets.remove(w);
             }
         }
+
         else if(obj == rz_still_left  || obj == rz_walk_left2) {
             for (int x = 0; x < bulletss.size(); x++) {
                 m2 = (Bullet) bulletss.get(x);
@@ -201,7 +205,6 @@ public class Player extends JPanel implements ActionListener
                     bulletss.remove(x);
             }
         }
-
 
         for (int w = 0; w < bulletss.size(); w++)
         {
@@ -219,8 +222,6 @@ public class Player extends JPanel implements ActionListener
             else
                 bullets.remove(w);
         }
-
-
         // repaint(); //repaint after 30ms
     }
 
@@ -297,7 +298,7 @@ public class Player extends JPanel implements ActionListener
                 if (rz_y <= 50)
                     jump = false;
 
-                if(rz_y <= 150) {
+                if(rz_y < 150) {
                     map.bk_y += 2;
                 }
                 //else if(rz_y < 100)
@@ -312,7 +313,7 @@ public class Player extends JPanel implements ActionListener
 
                 rz_y = rz_y + 1;       //Speed
 
-                if(rz_y < 150)
+                if(rz_y <= 150)
                     map.bk_y -= 2;
             }
         }

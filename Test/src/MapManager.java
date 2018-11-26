@@ -22,7 +22,6 @@ public class MapManager extends JPanel
         background3 = new ImageIcon("src/backgrounds\\rear_bg2.png").getImage();
     }
 
-
     public void setBackground(Graphics g2d) {
         g2d.drawImage(background3, 700 - bk3_x, -75, null); // Drawing background
         g2d.drawImage(background2, 700 - bk2_x, 0, null); // Drawing background

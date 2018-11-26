@@ -13,16 +13,19 @@ public class Health extends  JPanel{
         else
             hp = hp - 10;
     }
+
     public void giveDamage()
     {
 
     }
+
     public boolean isDead()
     {
         if (hp<=0)
             dead = true;
         return dead;
     }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 

@@ -113,9 +113,6 @@ public class Bullet
         x += n_x;  // movement in x-direction after dt time w/ constant velocity
         y += n_y;*/
 
-
-
-
        /* if (y != m_y )
             y += n_y ;
         if (y != m_y && y < m_y)

@@ -6,20 +6,22 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+public class Points extends JPanel {
 
-    public class Points extends JPanel {
         public int points;
 
-        void Add_Points(int x){
+        public void Add_Points(int x){
             if(x>=0) {
                 this.points = this.points + x;
             }
         }
-        void Sub_Points(int x){
+
+        public void Sub_Points(int x){
             if(x>=0) {
                 this.points = this.points - x;
             }
         }
+
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.setColor(Color.BLACK);
