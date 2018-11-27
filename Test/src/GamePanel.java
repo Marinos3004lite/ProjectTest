@@ -40,13 +40,13 @@ public class GamePanel extends Player
         // in normal still
         // state after jump
         {
-            if (obj == rz_jump_left)
-                obj = rz_still_left;
-            if (obj == rz_jump_right)
-                obj = rz_still_right;
+            if (p.image == rz_jump_left)
+                p.image = rz_still_left;
+            if (p.image == rz_jump_right)
+                p.image = rz_still_right;
         }
 
-        g2d.drawImage(obj, p.x, p.y, this); // Drawing the character image
+        g2d.drawImage(p.image, p.x, p.y, this); // Drawing the character image
 
         hp.paintComponent(g2d);
         ArrayList bulletsL = getBulletsL();

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Player extends JPanel implements ActionListener {
     private Thread r, l, j, a;
 
-    protected Image rz_still_right = new ImageIcon("src/razmazio\\still_right.png").getImage(); // Standing still
-    protected Image rz_still_left = new ImageIcon("src/razmazio\\still_left.png").getImage(); // Walking left
+    protected Image rz_still_right = new ImageIcon("src/razmazio\\still_right.gif").getImage(); // Standing still
+    protected Image rz_still_left = new ImageIcon("src/razmazio\\still_left.gif").getImage(); // Walking left
     protected Image rz_walk_left2 = new ImageIcon("src/razmazio\\player_walk_left.gif").getImage(); //
     protected Image rz_jump_right = new ImageIcon("src/razmazio\\still_right.png").getImage(); // Jumping
     protected Image rz_jump_left = new ImageIcon("src/razmazio\\still_left.png").getImage(); //
@@ -70,7 +70,7 @@ public class Player extends JPanel implements ActionListener {
         bulletsR = new ArrayList();
         bulletsL = new ArrayList();
 
-        addKeyListener(new KeyAdapter() // Movement of razmazio
+        addKeyListener(new KeyAdapter() // Movement
         {
             public void keyPressed(KeyEvent kp) {
                 //System.out.println(kp);
@@ -156,8 +156,8 @@ public class Player extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        //System.out.println(map.back1.getBounds().x);
-        System.out.println(p.getBounds().y);
+        System.out.println(map.back1.getBounds().x);
+        //System.out.println(p.getBounds().y);
         checkCollisions();
 
         Thread r = new Thread(() -> {
@@ -307,44 +307,50 @@ public class Player extends JPanel implements ActionListener {
             }
         }
     }
-    public void checkCollisions() { /// not working
+    public void checkCollisions()/// working
+    {
+        //Prwto keno
+        if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
+            p.y = p.y + 10;   //Speed
+            hp.hp=0;
+            System.out.println("hola");
+        }
+        //Aniforo prwto
+        if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
+        {
+            //p.y = map.back1.getBounds().y;   //Speed
+            addKeyListener(new KeyAdapter() // Movement
+                           {
+                               public void keyPressed(KeyEvent kp) {
+                                   //System.out.println(kp);
+                                   if (kp.getKeyCode() == KeyEvent.VK_D & moveableRight) {
+                                       //direction = 2; // right
+                                       p.y -= 10;
+                                   }
+                                   if ((kp.getKeyCode() == KeyEvent.VK_A) & moveableLeft) {
+                                       //direction = 3; // left
+                                   }
+                               }
+                           });
 
-        //Rectangle r3 = map.back1.getBounds();
-
-        //for (Fire f : fires) {
-
-            //Rectangle r2 = p.getBounds();
-
-            if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
-                p.y = p.y + 10;   //Speed
-                hp.hp=0;
-                //p.setVisible(false);
-                //map.back1.setVisible(false);
-                System.out.println("hola");
-                ////ingame = false;
-            }
-        //}
-
-        /*java.util.List<Missile> ms = drone.getMissiles();
-
-        for (Missile m : ms) {
-
-            Rectangle r1 = m.getBounds();
-
-            for (Fire fire : fires) {
-
-                Rectangle r2 = fire.getBounds();
-
-                if (r1.intersects(r2)) {
-
-                    m.setVisible(false);
-                    fire.setVisible(false);
-                }
-            }
-        }*/
+            //p.x += ;
+            map.back1.y=0;
+            System.out.println("hola");
+            jump = false;
+        }
+        //Panw sto aniforo
+        if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
+            p.y = 160 ;   //Speed
+            System.out.println("hola");
+            jump=false;
+        }
+        //Deftero keno
+        if (map.back1.getBounds().x>=6085 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
+            p.y = p.y + 10;   //Speed
+            hp.hp=0;
+            System.out.println("hola");
+        }
     }
-
-
 }
 /* /*public void checkCollisions() {
 
