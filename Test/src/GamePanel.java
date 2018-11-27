@@ -24,7 +24,7 @@ public class GamePanel extends Player
         ammo.paintComponent(g2d);
         //coin.paintComponent(g2d);
         point.paintComponent(g2d);
-
+        ///map.sprite1.setVisible(false);
         //map.setCoin(g2d);
         // checking jump collision and enemy death
 
@@ -36,7 +36,7 @@ public class GamePanel extends Player
         if (hp.dead)
             j.stop();
 
-        if (rz_y == 420 & direction != 3 & direction != 2) // to turn player
+        if (p.y == 420 & direction != 3 & direction != 2) // to turn player
         // in normal still
         // state after jump
         {
@@ -46,7 +46,7 @@ public class GamePanel extends Player
                 obj = rz_still_right;
         }
 
-        g2d.drawImage(obj, rz_x, rz_y, this); // Drawing the character image
+        g2d.drawImage(obj, p.x, p.y, this); // Drawing the character image
 
         hp.paintComponent(g2d);
         ArrayList bulletsL = getBulletsL();

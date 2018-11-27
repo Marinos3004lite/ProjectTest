@@ -18,8 +18,10 @@ public class Player extends JPanel implements ActionListener {
 
     protected Image obj = rz_still_right; // Temporary Image reference
 
-    protected int rz_x = 500; // character x and y coordinates
-    protected int rz_y = 420;
+
+    //protected int p.x = 500; // character x and y coordinates
+    ///protected int p.y = 420;
+    Sprite p = new Sprite(500,420); /// ??
 
     static int direction = 0; // 0=still 1=up , 2=right , 3=left , 4=down
 
@@ -31,6 +33,7 @@ public class Player extends JPanel implements ActionListener {
     Ammo ammo = new Ammo();
     //Coins coin = new Coins();
     Points point = new Points();
+
 
 
     protected static boolean moveableRight = true; // variable for collision detection
@@ -57,6 +60,9 @@ public class Player extends JPanel implements ActionListener {
     });*/
 
     protected Player() {
+        p.image=(obj);
+
+
         setLayout(null);
         time = new Timer(30, this); // starting a timer and passing the
         // actionlistener for the running animation
@@ -89,7 +95,7 @@ public class Player extends JPanel implements ActionListener {
                         hp.takeDamage();
                     }*/
 
-                if (obj == rz_still_right || obj == rz_walk_right2) {
+                if (p.image == rz_still_right || p.image == rz_walk_right2) {
                     if ((kp.getKeyCode() == KeyEvent.VK_ENTER)) {
                         //fireR();// fire
                         Thread fr = new Thread(() -> {
@@ -101,7 +107,7 @@ public class Player extends JPanel implements ActionListener {
                             fr.stop();
                         hp.takeDamage();
                     }
-                } else if (obj == rz_still_left || obj == rz_walk_left2) {
+                } else if (p.image == rz_still_left || p.image == rz_walk_left2) {
                     if ((kp.getKeyCode() == KeyEvent.VK_ENTER)) {
                         // fireL();// fire
                         Thread fl = new Thread(() -> {
@@ -124,7 +130,7 @@ public class Player extends JPanel implements ActionListener {
                     ammo.addAmmo(10);
                 }
                 if (kp.getKeyCode() == KeyEvent.VK_SPACE) {
-                    if (!jump & rz_y == 420) // if character standing of
+                    if (!jump & p.y == 420) // if character standing of
                     // platform
                     {
                         jump = true;
@@ -139,9 +145,9 @@ public class Player extends JPanel implements ActionListener {
 
             public void keyReleased(KeyEvent kr) {
                 if (direction == 2)
-                    obj = rz_still_right; // if direction is right
+                    p.image = rz_still_right; // if direction is right
                 if (direction == 3)
-                    obj = rz_still_left; // if direction is left
+                    p.image = rz_still_left; // if direction is left
 
                 direction = 0; // set still image
             }
@@ -149,6 +155,10 @@ public class Player extends JPanel implements ActionListener {
     }// end constructor
 
     public void actionPerformed(ActionEvent e) {
+
+        //System.out.println(map.back1.getBounds().x);
+        System.out.println(p.getBounds().y);
+        checkCollisions();
 
         Thread r = new Thread(() -> {
             this.right();
@@ -174,7 +184,7 @@ public class Player extends JPanel implements ActionListener {
         Bullet m;
         Bullet m2;
 
-        if (obj == rz_still_right || obj == rz_walk_right2) {
+        if (p.image == rz_still_right || p.image == rz_walk_right2) {
             for (int w = 0; w < bullets.size(); w++) {
                 m = (Bullet) bullets.get(w);
                 if (m.getVisible()) {
@@ -182,7 +192,7 @@ public class Player extends JPanel implements ActionListener {
                 } else
                     bullets.remove(w);
             }
-        } else if (obj == rz_still_left || obj == rz_walk_left2) {
+        } else if (p.image == rz_still_left || p.image == rz_walk_left2) {
             for (int x = 0; x < bulletss.size(); x++) {
                 m2 = (Bullet) bulletss.get(x);
                 if (m2.getVisible()) {
@@ -210,36 +220,36 @@ public class Player extends JPanel implements ActionListener {
     }
 
     private void right() {
-        if (moveableRight & map.bk_x < map.BKMAX_X - 800) {
-            map.bk_x += 8; // increasing xcoord while moving right
-            map.bk2_x += 3;
-            map.bk3_x += 1;
+        if (moveableRight & map.back1.x < map.BKMAX_X - 800) {
+            map.back1.x += 8; // increasing xcoord while moving right
+            map.back2.x += 3;
+            map.back3.x += 1;
 
             if (run % 3 == 0 | run % 5 == 0)
-                obj = rz_still_right;
+                p.image = rz_still_right;
             else
-                obj = rz_walk_right2;
+                p.image = rz_walk_right2;
             run++;
         }// end if
     }// end right
 
     private void left() {
-        if (moveableLeft & map.bk_x > map.BKMIN_X) {
-            map.bk_x -= 8; // decrease xcoord while moving left
-            map.bk2_x -= 3;
-            map.bk3_x -= 1;
+        if (moveableLeft & map.back1.x > map.BKMIN_X) {
+            map.back1.x -= 8; // decrease xcoord while moving left
+            map.back2.x -= 3;
+            map.back3.x -= 1;
 
             if (run % 3 == 0 | run % 5 == 0)
-                obj = rz_still_left; // set image
+                p.image = rz_still_left; // set image
             else
-                obj = rz_walk_left2;
+                p.image = rz_walk_left2;
             run++;
         }// end if
     }// end lefts
 
     public void fireR() {
         if (ammo.clip != 0) {
-            Bullet bR = new Bullet(rz_x + 78, rz_y + 85);
+            Bullet bR = new Bullet(p.x + 78, p.y + 85);
             ammo.clip--;
             bulletsR.add(bR);
             //coin.Add_Coins(10);
@@ -249,7 +259,7 @@ public class Player extends JPanel implements ActionListener {
 
     public void fireL() {
         if (ammo.clip != 0) {
-            Bullet bL = new Bullet(rz_x - 28, rz_y + 85);
+            Bullet bL = new Bullet(p.x - 28, p.y + 85);
             ammo.clip--;
             bulletsL.add(bL);
         }
@@ -266,39 +276,77 @@ public class Player extends JPanel implements ActionListener {
     protected void Jump() // Jump mechanism
     {
         if (moveableDown) {
-            if (jump & rz_y >= 50) // For upward motion during jump
+            if (jump & p.y >= 50) // For upward motion during jump
             {
                 if (jumpright)
-                    obj = rz_jump_right;
+                    p.image = rz_jump_right;
                 else
-                    obj = rz_jump_left;
+                    p.image = rz_jump_left;
 
-                rz_y = rz_y - 5;   //Speed
-                if (rz_y <= 50)
+                p.y = p.y - 5;   //Speed
+                if (p.y <= 50)
                     jump = false;
 
-                if (rz_y < 150) {
-                    map.bk_y += 2;
+                if (p.y < 150) {
+                    map.back1.y += 2;
                 }
-                //else if(rz_y < 100)
+                //else if(p.y < 100)
 
             }
-            if (!jump & rz_y < 420) // For downward motion during jump
+            if (!jump & p.y < 420) // For downward motion during jump
             {
                 if (jumpright)
-                    obj = rz_jump_right;
+                    p.image = rz_jump_right;
                 else
-                    obj = rz_jump_left;
+                    p.image = rz_jump_left;
 
-                rz_y = rz_y + 5;       //Speed
+                p.y = p.y + 5;       //Speed
 
-                if (rz_y <= 150)
-                    map.bk_y -= 2;
+                if (p.y <= 150)
+                    map.back1.y -= 2;
             }
         }
     }
+    public void checkCollisions() { /// not working
 
-    /*public void checkCollisions() {
+        //Rectangle r3 = map.back1.getBounds();
+
+        //for (Fire f : fires) {
+
+            //Rectangle r2 = p.getBounds();
+
+            if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
+                p.y = p.y + 10;   //Speed
+                hp.hp=0;
+                //p.setVisible(false);
+                //map.back1.setVisible(false);
+                System.out.println("hola");
+                ////ingame = false;
+            }
+        //}
+
+        /*java.util.List<Missile> ms = drone.getMissiles();
+
+        for (Missile m : ms) {
+
+            Rectangle r1 = m.getBounds();
+
+            for (Fire fire : fires) {
+
+                Rectangle r2 = fire.getBounds();
+
+                if (r1.intersects(r2)) {
+
+                    m.setVisible(false);
+                    fire.setVisible(false);
+                }
+            }
+        }*/
+    }
+
+
+}
+/* /*public void checkCollisions() {
 
         Rectangle r3 = coin.getBounds();
         Runnable r2 = rz_walk_left2.getWidth();
@@ -308,9 +356,7 @@ public class Player extends JPanel implements ActionListener {
             m.setVisible(false);
             fire.setVisible(false);
         }
-    }*/
-}
-/*
+    }
 
 
         for (bulletsL f : fires) {
