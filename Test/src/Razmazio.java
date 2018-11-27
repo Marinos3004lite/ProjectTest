@@ -12,6 +12,6 @@ public class Razmazio extends JFrame {
     }
 
     public static void main(String[] args) {
-        Razmazio rz = new Razmazio();
+
     }// end main
 }// end frame class
