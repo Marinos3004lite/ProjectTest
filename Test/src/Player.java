@@ -33,9 +33,7 @@ public class Player extends JPanel implements ActionListener {
     Ammo ammo = new Ammo();
     //Coins coin = new Coins();
     Points point = new Points();
-
-
-
+    int flag = 0;
     protected static boolean moveableRight = true; // variable for collision detection
     protected static boolean moveableLeft = true;
     protected static boolean moveableDown = false;
@@ -61,8 +59,6 @@ public class Player extends JPanel implements ActionListener {
 
     protected Player() {
         p.image=(obj);
-
-
         setLayout(null);
         time = new Timer(30, this); // starting a timer and passing the
         // actionlistener for the running animation
@@ -73,28 +69,12 @@ public class Player extends JPanel implements ActionListener {
         addKeyListener(new KeyAdapter() // Movement
         {
             public void keyPressed(KeyEvent kp) {
-                //System.out.println(kp);
                 if (kp.getKeyCode() == KeyEvent.VK_D & moveableRight) {
                     direction = 2; // right
                 }
                 if ((kp.getKeyCode() == KeyEvent.VK_A) & moveableLeft) {
                     direction = 3; // left
                 }
-                    /*if ((kp.getKeyCode() == KeyEvent.VK_RIGHT & moveableRight)&& (kp.getKeyCode() == KeyEvent.VK_F)) {
-                        direction = 2; // right
-                        fire();// fire
-                        hp.takeDamage();
-                    }
-                    if (((kp.getKeyCode() == KeyEvent.VK_LEFT) & moveableLeft) && (kp.getKeyCode() == KeyEvent.VK_F)) {
-                        direction = 3; // right
-                        fire();// fire
-                        hp.takeDamage();
-                    }*/
-                    /*if ((kp.getKeyCode() == KeyEvent.VK_F)) {
-                        fireL();// fire
-                        hp.takeDamage();
-                    }*/
-
                 if (p.image == rz_still_right || p.image == rz_walk_right2) {
                     if ((kp.getKeyCode() == KeyEvent.VK_ENTER)) {
                         //fireR();// fire
@@ -129,8 +109,9 @@ public class Player extends JPanel implements ActionListener {
                 if ((kp.getKeyCode() == KeyEvent.VK_E) & moveableLeft) {
                     ammo.addAmmo(10);
                 }
-                if (kp.getKeyCode() == KeyEvent.VK_SPACE) {
-                    if (!jump & p.y == 420) // if character standing of
+                if (kp.getKeyCode() == KeyEvent.VK_SPACE)
+                {
+                    if ((!jump & p.y == 420)||(!jump & p.y == 40)) // if character standing of
                     // platform
                     {
                         jump = true;
@@ -140,6 +121,7 @@ public class Player extends JPanel implements ActionListener {
                         if (direction == 3)
                             jumpright = false;
                     }
+
                 }
             } // end keyPressed
 
@@ -156,8 +138,9 @@ public class Player extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println(map.back1.getBounds().x);
+        //System.out.println(map.back1.getBounds().x);
         //System.out.println(p.getBounds().y);
+        //System.out.println(flag);
         checkCollisions();
 
         Thread r = new Thread(() -> {
@@ -275,35 +258,76 @@ public class Player extends JPanel implements ActionListener {
 
     protected void Jump() // Jump mechanism
     {
-        if (moveableDown) {
-            if (jump & p.y >= 50) // For upward motion during jump
-            {
-                if (jumpright)
-                    p.image = rz_jump_right;
-                else
-                    p.image = rz_jump_left;
+        if (flag == 0)
+        {
+            if (moveableDown) {
+                if (jump & p.y >= -10) // For upward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
 
-                p.y = p.y - 5;   //Speed
-                if (p.y <= 50)
-                    jump = false;
+                    p.y = p.y - 5;   //Speed
+                    if (p.y <= -10)
+                        jump = false;
 
-                if (p.y < 150) {
-                    map.back1.y += 2;
+                    /*if (p.y < 50 && flag == 0) {
+                        map.back1.y += 3;
+                    }*/
+                    //else if(p.y < 100)
+
                 }
-                //else if(p.y < 100)
+                if (!jump & p.y < 420) // For downward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
 
+                    p.y = p.y + 5;       //Speed
+
+                    /*if (p.y <= 50 && flag == 0)
+                        map.back1.y -= 3;*/
+                }
             }
-            if (!jump & p.y < 420) // For downward motion during jump
-            {
-                if (jumpright)
-                    p.image = rz_jump_right;
-                else
-                    p.image = rz_jump_left;
+        }
+        else if (flag == 1)
+        {
+            if (moveableDown) {
+                if (!jump & p.y < 40) // For downward motion during jump
+                {
+                    System.out.println("fuck offfff 2");
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
 
-                p.y = p.y + 5;       //Speed
+                    p.y = p.y + 5;       //Speed
 
-                if (p.y <= 150)
-                    map.back1.y -= 2;
+                    if (p.y <= -200)
+                        map.back1.y -= 3;
+                }
+                if (jump & p.y >= -600) // For upward motion during jump
+                {
+                    System.out.println("fuck offfff ");
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y - 5;   //Speed
+                    if (p.y <= -600) {
+                        System.out.println("fuck offfff 444 ");
+                        jump = false;
+                    }
+                    System.out.println(jump);
+                    if (p.y < -200){
+                        map.back1.y += 3;
+                    }
+
+                }
+
             }
         }
     }
@@ -313,42 +337,55 @@ public class Player extends JPanel implements ActionListener {
         if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-            System.out.println("hola");
         }
         //Aniforo prwto
-        if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
+        else if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
         {
             //p.y = map.back1.getBounds().y;   //Speed
-            addKeyListener(new KeyAdapter() // Movement
-                           {
-                               public void keyPressed(KeyEvent kp) {
-                                   //System.out.println(kp);
-                                   if (kp.getKeyCode() == KeyEvent.VK_D & moveableRight) {
-                                       //direction = 2; // right
-                                       p.y -= 10;
-                                   }
-                                   if ((kp.getKeyCode() == KeyEvent.VK_A) & moveableLeft) {
-                                       //direction = 3; // left
-                                   }
-                               }
-                           });
-
             //p.x += ;
             map.back1.y=0;
             System.out.println("hola");
             jump = false;
         }
         //Panw sto aniforo
-        if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
+        else if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
             p.y = 160 ;   //Speed
-            System.out.println("hola");
-            jump=false;
+            flag = 1;
         }
         //Deftero keno
-        if (map.back1.getBounds().x>=6085 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
+        else if (map.back1.getBounds().x>=6050 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-            System.out.println("hola");
+        }
+        // prwto platform
+        else if (map.back1.getBounds().x>=1550 &&map.back1.getBounds().x<=1950&&p.getBounds().y <= 40) {
+            p.y = 40;   //Speed
+            flag = 1;
+            //jump = false;
+        }
+        // deftero platform
+        else if (map.back1.getBounds().x>=2210 &&map.back1.getBounds().x<=2359&&p.getBounds().y <= 40) {
+            p.y = 40;   //Speed
+            flag = 1;
+        }
+        // trito platform
+        else if (map.back1.getBounds().x>=6190 &&map.back1.getBounds().x<=6850&&p.getBounds().y <= 120) {
+            p.y = 120;   //Speed
+            flag = 1;
+        }
+        // tetarto platform
+        else if (map.back1.getBounds().x>=6985 &&map.back1.getBounds().x<=7250&&p.getBounds().y <= -10) {
+            p.y = -10;   //Speed
+            flag = 1;
+        }
+        else if (map.back1.getBounds().x>=7725 &&map.back1.getBounds().x<=7815&&p.getBounds().y <= -10) {
+            hp.hp=0;
+        }
+        // normal ground
+        else
+        {
+            flag =0;
+            //map.back1.y=0;
         }
     }
 }

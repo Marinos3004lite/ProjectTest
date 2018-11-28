@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class MapManager extends JPanel
+public class MapManager
 {
     Sprite back1 = new Sprite(695,0);
     Sprite back2 = new Sprite(695,535);
     Sprite back3= new Sprite(695,535);
+    Sprite back4= new Sprite(695,0);
     /*public Image background;
     public int bk_x = 695; // background x and y coordinates
     public int bk_y = 0;
@@ -23,6 +24,7 @@ public class MapManager extends JPanel
     public MapManager()
     {
         back1.loadImage("src/backgrounds\\bkg5.png");
+        back4.loadImage("src/backgrounds\\level_back.png");
         //background = new ImageIcon("src/backgrounds\\bkg5.png").getImage();
         //back1.getImage()= background;
         ///background=back1.getImage();

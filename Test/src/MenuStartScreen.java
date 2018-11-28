@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.awt.image.ImageObserver;
 
 
-public class MenuStartScreen {
+public class MenuStartScreen extends GamePanel{
     public JButton playButton;
     public JButton optionsButton;
     public JButton helpButton;
@@ -27,6 +27,7 @@ public class MenuStartScreen {
     public JLabel l1;
     public static ImageIcon i = new ImageIcon("texture.jpg");
     public static JLabel l = new JLabel();
+    protected Image background = new ImageIcon("src/razmazio\\still_right.png").getImage(); // Standing still
 
 
     public MenuStartScreen() {
@@ -61,6 +62,9 @@ public class MenuStartScreen {
             }
         });
     }
+    public void setBackground(Graphics g) {
+        g.drawImage(background, 0, 0, null); // Drawing background
+    }
 
     public static void main(String args[]) {
         frame = new JFrame("Menu");
@@ -70,7 +74,10 @@ public class MenuStartScreen {
         frame.setSize(1280,720);
         frame.setVisible(true);
         frame.setLocation((int)(screenSize.getWidth()-frame.getSize().width)/2,(int)(screenSize.getHeight()-frame.getSize().height)/2);
+
     }
+
+
 
 
     private void createUIComponents() {

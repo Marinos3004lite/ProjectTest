@@ -10,15 +10,13 @@ public class GamePanel extends Player
 {
     //MapManager map = new MapManager();
 
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2d = (Graphics2D) g;
-
         requestFocus(); // get focus after changing card
         setFocusable(true);
-
+        //test.setBackground(g);
         // setting background points and cash in the game
         map.setBackground(g2d);
         ammo.paintComponent(g2d);
@@ -47,7 +45,7 @@ public class GamePanel extends Player
         }
 
         g2d.drawImage(p.image, p.x, p.y, this); // Drawing the character image
-
+        g2d.drawImage(map.back4.image, 700 - map.back1.x, map.back1.y, null); // Drawing background
         hp.paintComponent(g2d);
         ArrayList bulletsL = getBulletsL();
 
