@@ -58,7 +58,7 @@ public class Player extends JPanel implements ActionListener {
     });*/
 
     protected Player() {
-        p.image=(obj);
+        p.image = obj;
         setLayout(null);
         time = new Timer(30, this); // starting a timer and passing the
         // actionlistener for the running animation
@@ -142,6 +142,7 @@ public class Player extends JPanel implements ActionListener {
         //System.out.println(p.getBounds().y);
         //System.out.println(flag);
         checkCollisions();
+        checkCollisionsC();
 
         Thread r = new Thread(() -> {
             this.right();
@@ -295,19 +296,6 @@ public class Player extends JPanel implements ActionListener {
         else if (flag == 1)
         {
             if (moveableDown) {
-                if (!jump & p.y < 40) // For downward motion during jump
-                {
-                    System.out.println("fuck offfff 2");
-                    if (jumpright)
-                        p.image = rz_jump_right;
-                    else
-                        p.image = rz_jump_left;
-
-                    p.y = p.y + 5;       //Speed
-
-                    if (p.y <= -200)
-                        map.back1.y -= 3;
-                }
                 if (jump & p.y >= -600) // For upward motion during jump
                 {
                     System.out.println("fuck offfff ");
@@ -316,8 +304,9 @@ public class Player extends JPanel implements ActionListener {
                     else
                         p.image = rz_jump_left;
 
-                    p.y = p.y - 5;   //Speed
-                    if (p.y <= -600) {
+                    p.y = p.y - 1;   //Speed
+
+                    if (p.y >= -600) {
                         System.out.println("fuck offfff 444 ");
                         jump = false;
                     }
@@ -327,19 +316,31 @@ public class Player extends JPanel implements ActionListener {
                     }
 
                 }
+                if (!jump & p.y < 40) // For downward motion during jump
+                {
+                    System.out.println("fuck offfff 2");
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
 
+                    p.y = p.y + 1;       //Speed
+
+                    if (p.y <= -200)
+                        map.back1.y -= 3;
+                }
             }
         }
     }
     public void checkCollisions()/// working
     {
         //Prwto keno
-        if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
+        /*if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-        }
+        }*/
         //Aniforo prwto
-        else if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
+         if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
         {
             //p.y = map.back1.getBounds().y;   //Speed
             //p.x += ;
@@ -387,6 +388,15 @@ public class Player extends JPanel implements ActionListener {
             flag =0;
             //map.back1.y=0;
         }
+    }
+
+    public void checkCollisionsC()
+    {
+        Rectangle r = map.coins.coin.getBounds();
+        Rectangle pl = p.getBounds();
+        System.out.println(p.getBounds());
+        if (pl.intersects(r))
+            System.out.print("Hi");
     }
 }
 /* /*public void checkCollisions() {

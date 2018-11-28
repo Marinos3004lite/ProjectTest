@@ -5,8 +5,8 @@ public class MapManager
 {
     Sprite back1 = new Sprite(695,0);
     Sprite back2 = new Sprite(695,535);
-    Sprite back3= new Sprite(695,535);
-    Sprite back4= new Sprite(695,0);
+    Sprite back3 = new Sprite(695,535);
+    Sprite back4 = new Sprite(695,0);
     /*public Image background;
     public int bk_x = 695; // background x and y coordinates
     public int bk_y = 0;
@@ -19,7 +19,7 @@ public class MapManager
 
     final public int BKMIN_X = 1000, BKMAX_X = 10000; // Min and Max of
 
-    //Coins coins = new Coins();
+    Coins coins = new Coins(0,0);
 
     public MapManager()
     {
@@ -35,6 +35,7 @@ public class MapManager
         //background2 = new ImageIcon("src/backgrounds\\rear_bg1.png").getImage();
         //background3 = new ImageIcon("src/backgrounds\\rear_bg2.png").getImage();
 
+        System.out.print(back3.x);
     }
 
     public void setBackground(Graphics g2d) {
@@ -48,9 +49,12 @@ public class MapManager
         // character
     }
 
-    /*public void setCoin(Graphics g2d) {
-        g2d.drawImage(coins.coin, 4000 - bk_x, 10, null); // Drawing background
-        g2d.drawImage(coins.coin, 4150 - bk_x, 10, null); // Drawing background
-        g2d.drawImage(coins.coin, 4300 - bk_x, 10, null); // Drawing background
-    }// end*/
+    public void setCoin(Graphics g2d) {
+        //g2d.drawImage(coins.coin.image, 2160 - back1.x, 150, null); // Drawing background
+        //g2d.drawImage(coins.coin.image, 2260 - back1.x, 150, null); // Drawing background
+        //g2d.drawImage(coins.coin.image, 2360 - back1.x, 150, null); // Drawing background
+        g2d.drawImage(coins.coin.image, 2160 - back1.x, 450, null); // Drawing background
+        g2d.drawImage(coins.coin.image, 2260 - back1.x, 450, null); // Drawing background
+        g2d.drawImage(coins.coin.image, 2360 - back1.x, 450, null); // Drawing background
+    }// end
 }
