@@ -9,32 +9,31 @@ import java.util.ArrayList;
 public class Coins extends JPanel {
 
     public int coins;
-    public int x, y;
-    Sprite coin = new Sprite(x, y);
-
-    /*public Coins(int x, int y) {
-        super(x, y);
-        {
-            coin = new ImageIcon("src/razmazio\\coin.gif").getImage();
-            getImageDimensions();
-        }
-*/
+    Sprite coin;
 
     public Coins(int x, int y) {
+        coin = new Sprite(x, y);
         coin.loadImage("src/razmazio\\coin.gif");
+        coin.getImageDimensions();
     }
-    /*void Add_Coins(int x){
+
+    public void checkVis()
+    {
+        if (coin.isVisible())
+            System.out.println("Hi");
+        else
+            System.out.println("Not Hi");
+    }
+    public void Add_Coins(int x){
         if(x >= 0) {
             this.coins = this.coins + x;
         }
     }
-    void Sub_Coins(int x){
+    public void Sub_Coins(int x){
         if(x >= 0) {
             this.coins = this.coins - x;
         }
-    }*/
-
-
+    }
 
     public void paintComponent(Graphics g) {
      super.paintComponent(g);

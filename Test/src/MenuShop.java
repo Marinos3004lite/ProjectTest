@@ -15,7 +15,7 @@ public class MenuShop {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                MenuStartScreen.frame.setContentPane(new MenuStartScreen().panel1);
+                MenuStartScreen.frame.setContentPane(new MenuStartScreen().panel);
                 MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 MenuStartScreen.frame.pack();
                 MenuStartScreen.frame.setSize(1280,720);

@@ -27,12 +27,17 @@ public class Player extends JPanel implements ActionListener {
 
     static ArrayList bulletsR;
     static ArrayList bulletsL;
-
+    ArrayList<Sprite> newCoins;
+    //static ArrayList<Sprite>  newCoins;
+    int start =0;
+    public static ArrayList<Sprite> coins;
     MapManager map = new MapManager();
+    //Coins coins = new Coins(0,0);
     Health hp = new Health();
     Ammo ammo = new Ammo();
     //Coins coin = new Coins();
     Points point = new Points();
+
     int flag = 0;
     protected static boolean moveableRight = true; // variable for collision detection
     protected static boolean moveableLeft = true;
@@ -59,12 +64,17 @@ public class Player extends JPanel implements ActionListener {
 
     protected Player() {
         p.image = obj;
+        p.getImageDimensions();
         setLayout(null);
-        time = new Timer(30, this); // starting a timer and passing the
+        time = new Timer(15, this); // starting a timer and passing the
         // actionlistener for the running animation
         time.start(); // starting
         bulletsR = new ArrayList();
         bulletsL = new ArrayList();
+        newCoins = getCoins();
+
+        //newCoins = new ArrayList();
+
 
         addKeyListener(new KeyAdapter() // Movement
         {
@@ -142,7 +152,7 @@ public class Player extends JPanel implements ActionListener {
         //System.out.println(p.getBounds().y);
         //System.out.println(flag);
         checkCollisions();
-        checkCollisionsC();
+        //checkCollisionsC();
 
         Thread r = new Thread(() -> {
             this.right();
@@ -256,7 +266,9 @@ public class Player extends JPanel implements ActionListener {
     public static ArrayList getBulletsL() {
         return bulletsL;
     }
-
+    public static ArrayList getCoins() {
+        return coins;
+    }
     protected void Jump() // Jump mechanism
     {
         if (flag == 0)
@@ -271,7 +283,9 @@ public class Player extends JPanel implements ActionListener {
 
                     p.y = p.y - 5;   //Speed
                     if (p.y <= -10)
+                    {
                         jump = false;
+                    }
 
                     /*if (p.y < 50 && flag == 0) {
                         map.back1.y += 3;
@@ -293,10 +307,15 @@ public class Player extends JPanel implements ActionListener {
                 }
             }
         }
-        else if (flag == 1)
+        /*else if (flag == 1)
+        {
+            flag=2;
+            jump = false;
+        }
+        else if (flag == 2)
         {
             if (moveableDown) {
-                if (jump & p.y >= -600) // For upward motion during jump
+                if (jump & p.y >= -50) // For upward motion during jump
                 {
                     System.out.println("fuck offfff ");
                     if (jumpright)
@@ -304,15 +323,15 @@ public class Player extends JPanel implements ActionListener {
                     else
                         p.image = rz_jump_left;
 
-                    p.y = p.y - 1;   //Speed
+                    p.y = p.y - 3;   //Speed
 
-                    if (p.y >= -600) {
+                    if (p.y <= -50) {
                         System.out.println("fuck offfff 444 ");
                         jump = false;
                     }
                     System.out.println(jump);
-                    if (p.y < -200){
-                        map.back1.y += 3;
+                    if (p.y < 0){
+                        map.back1.y = map.back1.y+10;
                     }
 
                 }
@@ -324,13 +343,13 @@ public class Player extends JPanel implements ActionListener {
                     else
                         p.image = rz_jump_left;
 
-                    p.y = p.y + 1;       //Speed
+                    p.y = p.y + 3;       //Speed
 
-                    if (p.y <= -200)
-                        map.back1.y -= 3;
+                    if (p.y <= 1)
+                        map.back1.y = map.back1.y-10;
                 }
             }
-        }
+        }*/
     }
     public void checkCollisions()/// working
     {
@@ -340,7 +359,7 @@ public class Player extends JPanel implements ActionListener {
             hp.hp=0;
         }*/
         //Aniforo prwto
-         if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
+        if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
         {
             //p.y = map.back1.getBounds().y;   //Speed
             //p.x += ;
@@ -349,25 +368,33 @@ public class Player extends JPanel implements ActionListener {
             jump = false;
         }
         //Panw sto aniforo
-        else if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
+        if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
             p.y = 160 ;   //Speed
             flag = 1;
         }
+        if (map.back1.getBounds().x>=7725 &&map.back1.getBounds().x<=7815&&p.getBounds().y <= -10) {
+            hp.hp=0;
+        }
         //Deftero keno
-        else if (map.back1.getBounds().x>=6050 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
+        if (map.back1.getBounds().x>=6050 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
         }
         // prwto platform
-        else if (map.back1.getBounds().x>=1550 &&map.back1.getBounds().x<=1950&&p.getBounds().y <= 40) {
-            p.y = 40;   //Speed
-            flag = 1;
-            //jump = false;
+        if (map.back1.getBounds().x>=1550 &&map.back1.getBounds().x<=1950&&p.getBounds().y <= 40) {
+            if (flag== 0)
+            {
+                p.y = 40;   //Speed
+                flag=1;
+            }
         }
         // deftero platform
         else if (map.back1.getBounds().x>=2210 &&map.back1.getBounds().x<=2359&&p.getBounds().y <= 40) {
-            p.y = 40;   //Speed
-            flag = 1;
+            if (flag== 0)
+            {
+                p.y = 40;   //Speed
+                flag=1;
+            }
         }
         // trito platform
         else if (map.back1.getBounds().x>=6190 &&map.back1.getBounds().x<=6850&&p.getBounds().y <= 120) {
@@ -379,67 +406,44 @@ public class Player extends JPanel implements ActionListener {
             p.y = -10;   //Speed
             flag = 1;
         }
-        else if (map.back1.getBounds().x>=7725 &&map.back1.getBounds().x<=7815&&p.getBounds().y <= -10) {
-            hp.hp=0;
-        }
         // normal ground
         else
         {
             flag =0;
-            //map.back1.y=0;
+            map.back1.y=0;
         }
+
     }
+
+    public void setCoin() {
+    coins = new ArrayList<>();
+    int x=2160;
+        for (int i=0;i < 3;i++ ) {
+        Coins cn = new Coins(x - map.back1.x,40);
+        coins.add(cn.coin);
+        x=x+100;
+    }
+        System.out.println("hi");
+
+}// end
 
     public void checkCollisionsC()
     {
-        Rectangle r = map.coins.coin.getBounds();
+        newCoins = getCoins();
+
+
         Rectangle pl = p.getBounds();
-        System.out.println(p.getBounds());
-        if (pl.intersects(r))
-            System.out.print("Hi");
+        for (int i = 0; i < newCoins.size(); i++) {
+            //System.out.println(coins.get(i).getBounds());
+            if (pl.intersects(newCoins.get(i).getBounds())) {
+                System.out.println("OH hi Mark! ");
+                newCoins.get(i).setVisible(false);
+                //coins.add(coins.get(i));
+                coins.remove(i);
+                //getCoins();
+                start++;
+            }
+        }
     }
 }
-/* /*public void checkCollisions() {
-
-        Rectangle r3 = coin.getBounds();
-        Runnable r2 = rz_walk_left2.getWidth();
-
-        if (r3.intersects(r2)) {
-
-            m.setVisible(false);
-            fire.setVisible(false);
-        }
-    }
-
-
-        for (bulletsL f : fires) {
-
-            Rectangle r2 = f.getBounds();
-
-            if (r3.intersects(r2)) {
-
-                drone.setVisible(false);
-                f.setVisible(false);
-                ingame = false;
-            }
-        }
-
-        java.util.List<Missile> ms = drone.getMissiles();
-
-        for (Missile m : ms) {
-
-            Rectangle r1 = m.getBounds();
-
-            for (Fire fire : fires) {
-
-                Rectangle r2 = fire.getBounds();
-
-                if (r1.intersects(r2)) {
-
-                    m.setVisible(false);
-                    fire.setVisible(false);
-                }
-            }
-        }
-    }*/
 
