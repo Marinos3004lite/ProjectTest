@@ -87,7 +87,7 @@ public class GamePanel extends Player
             g2d.drawImage(m.getImageR(), (int) m.getX(), (int) m.getY(), null);
         }
         // TESTING
-        Rectangle pl = p.getBounds();
+        /*Rectangle pl = p.getBounds();
         //g2d.fill(pl);
         g2d.setColor(Color.orange);
         //g2d.fillRect(2970 - map.back1.x,615,60,500); // keno1
@@ -115,7 +115,7 @@ public class GamePanel extends Player
         g2d.fillRect(7450 - map.back1.x, 20 ,20,20);
         g2d.fillRect(7840 - map.back1.x, 190 ,700,50);
         g2d.fillRect(8125 - map.back1.x, 620,250,10);
-        g2d.fillRect(8425 - map.back1.x, 620,800,500);
+        g2d.fillRect(8425 - map.back1.x, 620,800,500);*/
 
         checkCollisions();
         repaint();
