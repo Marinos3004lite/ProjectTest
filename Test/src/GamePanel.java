@@ -20,12 +20,27 @@ public class GamePanel extends Player
         // setting background points and cash in the game
         map.setBackground(g2d);
         ammo.paintComponent(g2d);
-        map.coins.paintComponent(g2d);
+        /*for (int i=0;i <coins.size();i++ )
+            coins.get(0).paintComponent(g2d);*/
+
+
         point.paintComponent(g2d);
         ///map.sprite1.setVisible(false);
-        map.setCoin(g2d);
-        // checking jump collision and enemy death
+        if (start == 0)
+        {
+            setCoin();
+            newCoins = getCoins();
+        }
+        if (start == 1)
+        {
+            CheckCoin();
+            newCoins = getCoins();
+        }
+        g2d.setColor(Color.BLACK);
+        g2d.setFont(new Font("Monospaced", Font.BOLD, 20));
+        g2d.drawString("COINS = " + coinscol,450, 60);
 
+        // checking jump collision and enemy death
         Thread j = new Thread(() -> {
             Jump();
         });
@@ -34,8 +49,7 @@ public class GamePanel extends Player
         hp.isDead();
         if (hp.dead)
             j.stop();
-
-        if (p.y == 420 & direction != 3 & direction != 2) // to turn player
+        if ((p.y == 420 & direction != 3 & direction != 2)||(p.y == 40 & direction != 3 & direction != 2)) // to turn player
         // in normal still
         // state after jump
         {
@@ -44,7 +58,17 @@ public class GamePanel extends Player
             if (p.image == rz_jump_right)
                 p.image = rz_still_right;
         }
-
+        int x =2160;
+        int k = 4000;
+        for (int w = 0; w < newCoins.size(); w++)
+        {
+            checkCollisionsC(w);
+            if (newCoins.get(w).visible)
+                g2d.drawImage(coins.get(w).image, newCoins.get(w).x, newCoins.get(w).y, null); // Drawing background
+            x = x + 100;
+            k = k + 100;
+            //System.out.println(map.coins.get(w).coin.isVisible());
+        }
         g2d.drawImage(p.image, p.x, p.y, this); // Drawing the character image
         g2d.drawImage(map.back4.image, 700 - map.back1.x, map.back1.y, null); // Drawing background
         hp.paintComponent(g2d);
@@ -61,7 +85,24 @@ public class GamePanel extends Player
             Bullet m = (Bullet) bulletsR.get(w);
             g2d.drawImage(m.getImageR(), (int) m.getX(), (int) m.getY(), null);
         }
+        // TESTING
+        Rectangle pl = p.getBounds();
+        //g2d.fill(pl);
+        g2d.setColor(Color.orange);
+        //g2d.fillRect(2970 - map.back1.x,615,60,500); // keno1
+        //g2d.fillRect(6665 - map.back1.x,615,1375,500); // keno2
+        /*g2d.fillRect(2110 - map.back1.x, 230 ,380,10); // plat1
+        for (int w = 0; w < 85 ; w++)
+            g2d.fillRect(5300 + (w * 3) - map.back1.x, 620 - (w * 3), 10, 10);
+        g2d.fillRect(5570 - map.back1.x, 365,245,10);
+        for (int w = 85; w >=0 ; w--)
+            g2d.fillRect(6070-(w*3) - map.back1.x, 620 - (w*3),10,10);
+        g2d.fillRect(6070 - map.back1.x, 620,500,10);
+        g2d.fillRect(5000 - map.back1.x, 620,300,10);*/
+        checkCollisions();
         repaint();
+
+
     } // end paintComponent
 }// end class
 

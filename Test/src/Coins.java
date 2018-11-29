@@ -8,31 +8,32 @@ import java.util.ArrayList;
 
 public class Coins extends JPanel {
 
-    public int coins;
-    public int x, y;
-    Sprite coin = new Sprite(x, y);
+    public int num_coins;
+    Sprite coin;
 
-    /*public Coins(int x, int y) {
-        super(x, y);
-        {
-            coin = new ImageIcon("src/razmazio\\coin.gif").getImage();
-            getImageDimensions();
-        }
-*/
-    public Coins() {
+    public Coins(int x, int y) {
+        coin = new Sprite(x, y);
         coin.loadImage("src/razmazio\\coin.gif");
-        Rectangle r = coin.getBounds();
+        coin.getImageDimensions();
     }
-    /*void Add_Coins(int x){
+
+    public void checkVis()
+    {
+        if (coin.isVisible())
+            System.out.println("Hi");
+        else
+            System.out.println("Not Hi");
+    }
+    public void Add_Coins(int x){
         if(x >= 0) {
-            this.coins = this.coins + x;
+            this.num_coins = this.num_coins + x;
         }
     }
-    void Sub_Coins(int x){
+    public void Sub_Coins(int x){
         if(x >= 0) {
-            this.coins = this.coins - x;
+            this.num_coins = this.num_coins - x;
         }
-    }*/
+    }
 
     public void paintComponent(Graphics g) {
      super.paintComponent(g);
@@ -41,7 +42,7 @@ public class Coins extends JPanel {
         //  g.drawImage(MapManager.background, 700 - bk_x, 0, null); // Drawing background
         g.setColor(Color.BLACK);
         g.setFont(new Font("Monospaced", Font.BOLD, 20));
-        g.drawString("COINS = " + coins,450, 60);
+        g.drawString("COINS = " + num_coins,450, 60);
     }
 
 }
