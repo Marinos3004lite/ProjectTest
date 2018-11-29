@@ -64,9 +64,10 @@ public class GamePanel extends Player
         j.start();
 
         hp.isDead();
-        if (hp.dead)
+        if (hp.dead||hp.win)
             j.stop();
-        if (((p.y == 420)||(p.y == 40)||(p.y == 165)||(p.y == 120)) & direction != 3 & direction != 2) // to turn player
+
+        if (((p.y == 420)||(p.y == 40)||(p.y == 165)||(p.y == 120)||(p.y == 0)) & direction != 3 & direction != 2) // to turn player
         // in normal still
         // state after jump
         {
@@ -120,7 +121,7 @@ public class GamePanel extends Player
             g2d.drawImage(m.getImageR(), (int) m.getX(), (int) m.getY(), null);
         }
         // TESTING
-        Rectangle pl = p.getBounds();
+        /*Rectangle pl = p.getBounds();
         //g2d.fill(pl);
         g2d.setColor(Color.orange);
         //g2d.fillRect(2970 - map.back1.x,615,60,500); // keno1
@@ -141,8 +142,14 @@ public class GamePanel extends Player
         g2d.fillRect(2765 - map.back1.x, 40 ,100,10); //plat2
         g2d.fillRect(5100 - map.back1.x, 230 ,330,90);
         g2d.fillRect(5900 - map.back1.x, 230 ,320,300);
-        g2d.fillRect(6750 - map.back1.x, 120 ,600,10);//plat3
-        g2d.fillRect(6500 - map.back1.x, 230 ,150,150);
+        g2d.fillRect(6750 - map.back1.x, 120 ,630,10);//plat3
+        g2d.fillRect(6500 - map.back1.x, 120 ,150,200);
+        g2d.fillRect(7450 - map.back1.x, 300 ,1100,100);
+        g2d.fillRect(7565 - map.back1.x, 0 ,230,10);//plat4
+        g2d.fillRect(7450 - map.back1.x, 20 ,20,20);
+        g2d.fillRect(7840 - map.back1.x, 190 ,700,50);
+        g2d.fillRect(8125 - map.back1.x, 620,250,10);
+        g2d.fillRect(8425 - map.back1.x, 620,800,500);*/
 
         //Rectangle tank  = enemy.tankip.getBounds();Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, enemy.tankip.y, enemy.tankip.width,
          //           enemy.tankip.height);

@@ -122,7 +122,7 @@ public class Player extends JPanel implements ActionListener {
                 }
                 if (kp.getKeyCode() == KeyEvent.VK_SPACE)
                 {
-                    if ((!jump & p.y == 420)||(!jump & p.y == 40)||(!jump & p.y == 165)||(!jump & p.y == 120)) // if character standing of
+                    if ((!jump & p.y == 420)||(!jump & p.y == 40)||(!jump & p.y == 165)||(!jump & p.y == 120)||(!jump & p.y == 0)) // if character standing of
                     // platform
                     {
                         jump = true;
@@ -161,14 +161,15 @@ public class Player extends JPanel implements ActionListener {
             this.left();
         });
 
-        if (hp.isDead())
+        if (hp.isDead()||hp.win)
             direction = 2;
         if (direction == 2)
             r.start();
         if (direction == 3)
             l.start();
         hp.isDead();
-        if (hp.dead) {
+        if (hp.dead||hp.win)
+        {
             r.stop();
             l.stop();
         }
@@ -215,7 +216,7 @@ public class Player extends JPanel implements ActionListener {
 
     private void right() {
         if (moveableRight & map.back1.x < map.BKMAX_X - 800) {
-            map.back1.x += 15; // increasing xcoord while moving right
+            map.back1.x += 8; // increasing xcoord while moving right
             map.back2.x += 3;
             map.back3.x += 1;
 
@@ -229,7 +230,7 @@ public class Player extends JPanel implements ActionListener {
 
     private void left() {
         if (moveableLeft & map.back1.x > map.BKMIN_X) {
-            map.back1.x -= 15; // decrease xcoord while moving left
+            map.back1.x -= 8; // decrease xcoord while moving left
             map.back2.x -= 3;
             map.back3.x -= 1;
 
@@ -312,7 +313,6 @@ public class Player extends JPanel implements ActionListener {
             if (moveableDown) {
                 if (jump & p.y >= -50) // For upward motion during jump
                 {
-                    System.out.println("fuck offfff ");
                     if (jumpright)
                         p.image = rz_jump_right;
                     else
@@ -321,18 +321,15 @@ public class Player extends JPanel implements ActionListener {
                     p.y = p.y - 3;   //Speed
 
                     if (p.y <= -50) {
-                        System.out.println("fuck offfff 444 ");
                         jump = false;
                     }
-                    System.out.println(jump);
                     if (p.y < 0){
-                        map.back1.y = map.back1.y+12;
+                        map.back1.y = map.back1.y+10;
                     }
 
                 }
                 if (!jump & p.y < 165) // For downward motion during jump
                 {
-                    System.out.println("fuck offfff 2");
                     if (jumpright)
                         p.image = rz_jump_right;
                     else
@@ -341,7 +338,7 @@ public class Player extends JPanel implements ActionListener {
                     p.y = p.y + 3;       //Speed
 
                     if (p.y <= 1)
-                        map.back1.y = map.back1.y-12;
+                        map.back1.y = map.back1.y-10;
                 }
             }
         }
@@ -360,9 +357,8 @@ public class Player extends JPanel implements ActionListener {
                     if (p.y <= -50) {
                         jump = false;
                     }
-                    System.out.println(jump);
                     if (p.y < 0){
-                        map.back1.y = map.back1.y+12;
+                        map.back1.y = map.back1.y+8;
                     }
 
                 }
@@ -376,14 +372,14 @@ public class Player extends JPanel implements ActionListener {
                     p.y = p.y + 3;       //Speed
 
                     if (p.y <= 1)
-                        map.back1.y = map.back1.y-12;
+                        map.back1.y = map.back1.y-8;
                 }
             }
         }
         else if (flag == 3)
         {
             if (moveableDown) {
-                if (jump & p.y >= -50) // For upward motion during jump
+                if (jump & p.y >= -10) // For upward motion during jump
                 {
                     if (jumpright)
                         p.image = rz_jump_right;
@@ -392,12 +388,11 @@ public class Player extends JPanel implements ActionListener {
 
                     p.y = p.y - 3;   //Speed
 
-                    if (p.y <= -50) {
+                    if (p.y <= -10) {
                         jump = false;
                     }
-                    System.out.println(jump);
                     if (p.y < 0){
-                        map.back1.y = map.back1.y+12;
+                        map.back1.y = map.back1.y+1;
                     }
 
                 }
@@ -411,7 +406,42 @@ public class Player extends JPanel implements ActionListener {
                     p.y = p.y + 3;       //Speed
 
                     if (p.y <= 1)
-                        map.back1.y = map.back1.y-12;
+                        map.back1.y = map.back1.y-1;
+                }
+            }
+        }
+        else if (flag == 4)
+        {
+            //jump=false;
+            if (moveableDown) {
+                if (jump & p.y >= -50) // For upward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y - 3;   //Speed
+
+                    if (p.y <= -50) {
+                        jump = false;
+                    }
+                    if (p.y < 0){
+                        map.back1.y = map.back1.y+1;
+                    }
+
+                }
+                if (!jump & p.y < 0) // For downward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y + 3;       //Speed
+
+                    if (p.y <= 1)
+                        map.back1.y = map.back1.y-1;
                 }
             }
         }
@@ -424,7 +454,6 @@ public class Player extends JPanel implements ActionListener {
         if (pl.intersects(keno1)){
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-            System.out.println("hello there ");
         }
         //Deftero keno
         Rectangle keno2 = new Rectangle(6665 - map.back1.x,615,1375,500);
@@ -551,8 +580,8 @@ public class Player extends JPanel implements ActionListener {
             p.y = 420;  //Speed
             map.back1.y=0;
         }
-        // trite platform
-        Rectangle plat3 = new Rectangle(6750 - map.back1.x, 120 ,600,10);
+        // trito platform
+        Rectangle plat3 = new Rectangle(6750 - map.back1.x, 120 ,630,10);
         if (pl.intersects(plat3)){
             if (flag== 0)
             {
@@ -562,14 +591,62 @@ public class Player extends JPanel implements ActionListener {
             }
         }
         // prin trito  platform gia land
-        Rectangle prin3 = new Rectangle(6500 - map.back1.x, 230 ,150,150);
+        Rectangle prin3 = new Rectangle(6500 - map.back1.x, 120 ,150,200);
         if (pl.intersects(prin3)){
             if (flag== 3)
             {
                 flag=0;
             }
         }
-
+        // prin tetarto  platform gia land
+        Rectangle meta4 = new Rectangle(7450 - map.back1.x, 300 ,1100,100);
+        if (pl.intersects(meta4)){
+            if ((flag== 3)||(flag== 4))
+            {
+                flag=0;
+            }
+        }
+        // prin tetarto  platform gia land
+        Rectangle meta41 = new Rectangle(7450 - map.back1.x, 20 ,20,20);
+        if (pl.intersects(meta41)){
+            if (flag== 4)
+            {
+                flag=3;
+            }
+        }
+        // meta tetarto  platform gia land
+        Rectangle meta5 = new Rectangle(7840 - map.back1.x, 190 ,700,50);
+        if (pl.intersects(meta5)){
+            if (flag == 4)
+            {
+                flag=3;
+            }
+        }
+        // tetarto platform
+        Rectangle plat4 = new Rectangle(7565 - map.back1.x, 0 ,230,10);
+        if (pl.intersects(plat4)){
+            if ((flag == 3)||(flag==0))
+            {
+                jump=false;
+                map.back1.y=0;
+                p.y = 0;   //Speed
+                flag=4;
+            }
+        }
+        // last keno
+        Rectangle keno3 = new Rectangle(8425 - map.back1.x, 620,800,500);
+        if (pl.intersects(keno3)){
+            p.y = p.y + 10;   //Speed
+            hp.hp=0;
+        }
+        // FINISH
+        Rectangle ground3 = new Rectangle(8125 - map.back1.x, 620,250,10);
+        if (pl.intersects(ground3)){
+            flag=0;
+            p.y = 420;  //Speed
+            map.back1.y=0;
+            hp.win=true;
+        }
     }
 
     public void setCoin() {

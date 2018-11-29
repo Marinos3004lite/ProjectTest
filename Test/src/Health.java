@@ -4,6 +4,7 @@ import java.awt.*;
 public class Health extends  JPanel{
 
     int hp = 300;
+    public boolean win = false;
     public boolean dead =false;
 
     public void takeDamage()
@@ -55,6 +56,10 @@ public class Health extends  JPanel{
         {
             g.drawString("GAME OVER",350, 200);
             g.drawString(":(",490, 350);
+        }
+        if (win)
+        {
+            g.drawString("ALL I DO IS WIN WIN WIN ..",0, 200);
         }
     }
 }
