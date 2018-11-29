@@ -6,9 +6,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Time;
 import java.util.ArrayList;
-
 public class GamePanel extends Player
-{
+{JFrame frame;
+
+
+    public GamePanel( JFrame frame ){
+        this.frame= frame;
+        }
         Enemy enemy = new Enemy();
 
         //Tank tank1 = new Tank(62 - map.back1.x, 450);
@@ -23,7 +27,6 @@ public class GamePanel extends Player
             if (pl.intersects(tank)){
                 enemy.giveDmg();
                 hp.takeDamage();
-            System.out.println("hi");
             }
         }
 
@@ -64,9 +67,25 @@ public class GamePanel extends Player
         j.start();
 
         hp.isDead();
-        if (hp.dead||hp.win)
+        if (hp.dead||hp.win) {
             j.stop();
+            if(hp.dead){
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                this.frame.dispose();
 
+                MenuStartScreen.frame.setContentPane(new MenuStartScreen().panel);
+                MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                MenuStartScreen.frame.pack();
+                MenuStartScreen.frame.setSize(1280, 720);
+                MenuStartScreen.frame.setVisible(true);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() -   MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - frame.getSize().height) / 2);
+
+
+
+            }
+
+
+        }
         if (((p.y == 420)||(p.y == 40)||(p.y == 165)||(p.y == 120)||(p.y == 0)) & direction != 3 & direction != 2) // to turn player
         // in normal still
         // state after jump

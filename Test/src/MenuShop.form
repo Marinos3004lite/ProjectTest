@@ -45,6 +45,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Back"/>
         </properties>
       </component>

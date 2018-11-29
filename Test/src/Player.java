@@ -114,7 +114,7 @@ public class Player extends JPanel implements ActionListener {
                 if ((kp.getKeyCode() == KeyEvent.VK_R) & moveableLeft) {
                     ammo.reload();// left
                     //coin.Sub_Coins(10);
-                    point.Sub_Points(10);
+                    //point.Sub_Points(10);
                 }
 
                 if ((kp.getKeyCode() == KeyEvent.VK_E) & moveableLeft) {
@@ -137,12 +137,19 @@ public class Player extends JPanel implements ActionListener {
             } // end keyPressed
 
             public void keyReleased(KeyEvent kr) {
-                if (direction == 2)
-                    p.image = rz_still_right; // if direction is right
-                if (direction == 3)
-                    p.image = rz_still_left; // if direction is left
-
-                direction = 0; // set still image
+                if (kr.getKeyCode() == KeyEvent.VK_D) {
+                    //System.out.println("released" + direction);
+                    if (direction == 2) {
+                        obj = rz_still_right; // if direction is right
+                        direction = 0; // set still image
+                    }
+                }
+                if (kr.getKeyCode() == KeyEvent.VK_A) {
+                    if (direction == 3) {
+                        obj = rz_still_left; // if direction is left
+                        direction = 0; // set still image
+                    }
+                }
             }
         });// end anonymous class and KeyListener
     }// end constructor
@@ -248,7 +255,7 @@ public class Player extends JPanel implements ActionListener {
             ammo.clip--;
             bulletsR.add(bR);
             //coin.Add_Coins(10);
-            point.Add_Points(10);
+            //point.Add_Points(10);
         }
     }
 
@@ -282,7 +289,7 @@ public class Player extends JPanel implements ActionListener {
                     else
                         p.image = rz_jump_left;
 
-                    p.y = p.y - 5;   //Speed
+                    p.y = p.y - 8;   //Speed
                     if (p.y <= -10)
                     {
                         jump = false;
@@ -301,7 +308,7 @@ public class Player extends JPanel implements ActionListener {
                     else
                         p.image = rz_jump_left;
 
-                    p.y = p.y + 5;       //Speed
+                    p.y = p.y + 8;       //Speed
 
                     /*if (p.y <= 50 && flag == 0)
                         map.back1.y -= 3;*/
@@ -478,7 +485,7 @@ public class Player extends JPanel implements ActionListener {
             }
         }
         // meta deftero platform gia land
-        Rectangle meta2 = new Rectangle(2960 - map.back1.x, 230 ,150,150);
+        Rectangle meta2 = new Rectangle(2960 - map.back1.x, 230 ,400,150);
         if (pl.intersects(meta2)){
             if (flag== 2)
             {

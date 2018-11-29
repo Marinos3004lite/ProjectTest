@@ -16,6 +16,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Play"/>
         </properties>
       </component>
@@ -25,6 +26,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Options"/>
         </properties>
       </component>
@@ -34,6 +36,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Help"/>
         </properties>
       </component>
@@ -43,6 +46,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Shop"/>
         </properties>
       </component>
@@ -67,6 +71,7 @@
         </constraints>
         <properties>
           <contentAreaFilled value="false"/>
+          <font size="28"/>
           <text value="Exit"/>
         </properties>
       </component>

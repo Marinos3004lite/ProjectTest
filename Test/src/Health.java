@@ -52,10 +52,18 @@ public class Health extends  JPanel{
         }
         g.setFont(new Font("Monospaced", Font.BOLD, 70));
         g2d.setColor(Color.RED);
-        if (hp <= 0)
-        {
-            g.drawString("GAME OVER",350, 200);
-            g.drawString(":(",490, 350);
+        if (hp <= 0) {
+
+            g2d.setColor(Color.black);
+            g2d.fillRect(0, 0, 1024, 750);
+            g2d.setColor(Color.red);
+            g.drawString("GAME OVER", 350, 200);
+            g.drawString(":(", 490, 350);
+            // create replay
+
+            //Razmazio d = new Razmazio();
+            //kati.panel.setVisible(true);
+            //hp=300;
         }
         if (win)
         {

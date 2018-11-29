@@ -34,7 +34,7 @@ public class MenuOptions {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                Image background = new ImageIcon("src/ezgif.com-video-to-gif.gif").getImage();
+                Image background = new ImageIcon("src/animated_bg_finished.gif").getImage();
                 g.drawImage(background, 0, 0,1280,720, null);
                 time = new Timer(1000000000, null);
                 time.start();

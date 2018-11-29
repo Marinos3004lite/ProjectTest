@@ -19,12 +19,8 @@ public class MenuStartScreen{
     public static JFrame frame;
     public JPanel panel;
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public Image menuBackground = new ImageIcon("src/ezgif.com-video-to-gif.gif").getImage();
     public Timer time;
 
-    public void setMenuBackground(Graphics g) {
-        g.drawImage(menuBackground, 0, 0, null);
-    }
 
     public MenuStartScreen() {
 
@@ -63,6 +59,18 @@ public class MenuStartScreen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(-1);
+            }
+        });
+        helpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuStartScreen.frame.setContentPane(new MenuHelp().panel);
+                MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                MenuStartScreen.frame.pack();
+                MenuStartScreen.frame.setSize(1280, 720);
+                MenuStartScreen.frame.setVisible(true);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
+
             }
         });
     }
