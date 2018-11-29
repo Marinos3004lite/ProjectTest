@@ -122,7 +122,7 @@ public class Player extends JPanel implements ActionListener {
                 }
                 if (kp.getKeyCode() == KeyEvent.VK_SPACE)
                 {
-                    if ((!jump & p.y == 420)||(!jump & p.y == 40)) // if character standing of
+                    if ((!jump & p.y == 420)||(!jump & p.y == 40)||(!jump & p.y == 165)||(!jump & p.y == 120)) // if character standing of
                     // platform
                     {
                         jump = true;
@@ -215,7 +215,7 @@ public class Player extends JPanel implements ActionListener {
 
     private void right() {
         if (moveableRight & map.back1.x < map.BKMAX_X - 800) {
-            map.back1.x += 8; // increasing xcoord while moving right
+            map.back1.x += 15; // increasing xcoord while moving right
             map.back2.x += 3;
             map.back3.x += 1;
 
@@ -229,7 +229,7 @@ public class Player extends JPanel implements ActionListener {
 
     private void left() {
         if (moveableLeft & map.back1.x > map.BKMIN_X) {
-            map.back1.x -= 8; // decrease xcoord while moving left
+            map.back1.x -= 15; // decrease xcoord while moving left
             map.back2.x -= 3;
             map.back3.x -= 1;
 
@@ -309,11 +309,6 @@ public class Player extends JPanel implements ActionListener {
         }
         else if (flag == 1)
         {
-            flag=0;
-            jump = false;
-        }
-        /*else if (flag == 2)
-        {
             if (moveableDown) {
                 if (jump & p.y >= -50) // For upward motion during jump
                 {
@@ -331,11 +326,11 @@ public class Player extends JPanel implements ActionListener {
                     }
                     System.out.println(jump);
                     if (p.y < 0){
-                        map.back1.y = map.back1.y+10;
+                        map.back1.y = map.back1.y+12;
                     }
 
                 }
-                if (!jump & p.y < 40) // For downward motion during jump
+                if (!jump & p.y < 165) // For downward motion during jump
                 {
                     System.out.println("fuck offfff 2");
                     if (jumpright)
@@ -346,10 +341,80 @@ public class Player extends JPanel implements ActionListener {
                     p.y = p.y + 3;       //Speed
 
                     if (p.y <= 1)
-                        map.back1.y = map.back1.y-10;
+                        map.back1.y = map.back1.y-12;
                 }
             }
-        }*/
+        }
+        else if (flag == 2)
+        {
+            if (moveableDown) {
+                if (jump & p.y >= -50) // For upward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y - 3;   //Speed
+
+                    if (p.y <= -50) {
+                        jump = false;
+                    }
+                    System.out.println(jump);
+                    if (p.y < 0){
+                        map.back1.y = map.back1.y+12;
+                    }
+
+                }
+                if (!jump & p.y < 40) // For downward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y + 3;       //Speed
+
+                    if (p.y <= 1)
+                        map.back1.y = map.back1.y-12;
+                }
+            }
+        }
+        else if (flag == 3)
+        {
+            if (moveableDown) {
+                if (jump & p.y >= -50) // For upward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y - 3;   //Speed
+
+                    if (p.y <= -50) {
+                        jump = false;
+                    }
+                    System.out.println(jump);
+                    if (p.y < 0){
+                        map.back1.y = map.back1.y+12;
+                    }
+
+                }
+                if (!jump & p.y < 120) // For downward motion during jump
+                {
+                    if (jumpright)
+                        p.image = rz_jump_right;
+                    else
+                        p.image = rz_jump_left;
+
+                    p.y = p.y + 3;       //Speed
+
+                    if (p.y <= 1)
+                        map.back1.y = map.back1.y-12;
+                }
+            }
+        }
     }
     public void checkCollisions()/// working
     {
@@ -367,34 +432,52 @@ public class Player extends JPanel implements ActionListener {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
         }
+        // prin prwto platform gia land
+        Rectangle prin1 = new Rectangle(1900 - map.back1.x, 230 ,150,150);
+        if (pl.intersects(prin1)){
+            if (flag== 2)
+            {
+                flag=0;
+            }
+        }
+        // prin deftero platform gia land
+        Rectangle meta1 = new Rectangle(2540 - map.back1.x, 230 ,150,150);
+        if (pl.intersects(meta1)){
+            if (flag== 2)
+            {
+                flag=0;
+            }
+        }
+        // meta deftero platform gia land
+        Rectangle meta2 = new Rectangle(2960 - map.back1.x, 230 ,150,150);
+        if (pl.intersects(meta2)){
+            if (flag== 2)
+            {
+                flag=0;
+            }
+        }
+
         // prwto platform
-        Rectangle plat1 = new Rectangle(2110 - map.back1.x, 230 ,380,10);
+        Rectangle plat1 = new Rectangle(2130 - map.back1.x, 40 ,340,10);
         if (pl.intersects(plat1)){
             if (flag== 0)
             {
+                jump=false;
                 p.y = 40;   //Speed
-                flag=1;
+                flag=2;
             }
         }
-        //Aniforo prwto
-        for (int w = 0; w < 85 ; w++) {
-            Rectangle anif = new Rectangle(5300 + (w * 3) - map.back1.x, 620 - (w * 3), 10, 10);
-            if (pl.intersects(anif)){
-                //if (flag== 0)
-                {
-                    p.y = 460 - (w * 3);   //Speed
-                    flag=1;
-                }
-            }
-        }
-        Rectangle flat = new Rectangle(5570 - map.back1.x, 365,245,10);
-        if (pl.intersects(flat)){
-            //if (flag== 0)
+        // deftero platform
+        Rectangle plat2 = new Rectangle(2765 - map.back1.x, 40 ,100,10);
+        if (pl.intersects(plat2)){
+            if (flag== 0)
             {
-                p.y = 165;  //Speed
-                flag=1;
+                jump=false;
+                p.y = 40;   //Speed
+                flag=2;
             }
         }
+        //katiforo prwto
         for (int w = 85; w >=0 ; w--) {
             Rectangle katif= new Rectangle(6070-(w*3) - map.back1.x, 620 - (w*3),10,10);
             if (pl.intersects(katif)){
@@ -405,71 +488,87 @@ public class Player extends JPanel implements ActionListener {
                 }
             }
         }
-        Rectangle ground2 = new Rectangle(6070 - map.back1.x, 620,500,10);
-        if (pl.intersects(ground2)){
-                flag=0;
-                p.y = 420;  //Speed
-                map.back1.y=0;
-            }
-        Rectangle ground1 = new Rectangle(5000 - map.back1.x, 620,500,10);
+        //prin keno1
+        Rectangle ground1 = new Rectangle(695 - map.back1.x, 620,2150,10);
         if (pl.intersects(ground1)){
             flag=0;
             p.y = 420;  //Speed
             map.back1.y=0;
         }
-
-        /*if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
-            p.y = p.y + 10;   //Speed
-            hp.hp=0;
+        // prin apo aniforo gia land
+        Rectangle prin2 = new Rectangle(5100 - map.back1.x, 230 ,330,90);
+        if (pl.intersects(prin2)){
+            if (flag== 1)
+            {
+                flag=0;
+            }
         }
-        //Aniforo prwto
-        if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
-        {
-            //p.y = map.back1.getBounds().y;   //Speed
+        // meta apo aniforo gia land
+        Rectangle meta3 = new Rectangle( 5900 - map.back1.x, 230 ,300,300);
+        if (pl.intersects(meta3)){
+            if (flag== 1)
+            {
+                flag=0;
+            }
+        }
+        int temp;
+        //prin apo aniforo
+        Rectangle ground11 = new Rectangle(3160 - map.back1.x, 620,2150,10);
+        if (pl.intersects(ground11)){
+            flag=0;
+            p.y = 420;  //Speed
             map.back1.y=0;
-            System.out.println("hola");
-            jump = false;
+            temp=0;
         }
-        //Panw sto aniforo
-        if (map.back1.getBounds().x > 5050 && map.back1.getBounds().x <= 5270){//&&p.getBounds().y>= 420) {
-            p.y = 160 ;   //Speed
-            flag = 1;
-        }
-        if (map.back1.getBounds().x>=7725 &&map.back1.getBounds().x<=7815&&p.getBounds().y <= -10) {
-            hp.hp=0;
-        }
-        // prwto platform
-        if (map.back1.getBounds().x>=1550 &&map.back1.getBounds().x<=1950&&p.getBounds().y <= 40) {
-            if (flag== 0)
-            {
-                p.y = 40;   //Speed
-                flag=1;
-            }
-        }
-        // deftero platform
-        else if (map.back1.getBounds().x>=2210 &&map.back1.getBounds().x<=2359&&p.getBounds().y <= 40) {
-            if (flag== 0)
-            {
-                p.y = 40;   //Speed
-                flag=1;
-            }
-        }
-        // trito platform
-        else if (map.back1.getBounds().x>=6190 &&map.back1.getBounds().x<=6850&&p.getBounds().y <= 120) {
-            p.y = 120;   //Speed
-            flag = 1;
-        }
-        // tetarto platform
-        else if (map.back1.getBounds().x>=6985 &&map.back1.getBounds().x<=7250&&p.getBounds().y <= -10) {
-            p.y = -10;   //Speed
-            flag = 1;
-        }
-        // normal ground
         else
+            temp=1;
+        //panw sto aniforo
+        Rectangle flat = new Rectangle(5570 - map.back1.x, 365,245,10);
+        if (pl.intersects(flat)){
+            jump=false;
+            p.y = 165;  //Speed
+            flag=1;
+            temp=0;
+        }
+        if (temp ==1)
         {
-            flag =0;
+            //Aniforo prwto
+            for (int w = 0; w < 85 ; w++) {
+                Rectangle anif = new Rectangle(5300 + (w * 3) - map.back1.x, 620 - (w * 3), 10, 10);
+                if (pl.intersects(anif)){
+                    //if (flag== 0)
+                    {
+                        p.y = 460 - (w * 3);   //Speed
+                        flag=1;
+                    }
+                }
+            }
+        }
+        //meta apo aniforo
+        Rectangle ground2 = new Rectangle(6070 - map.back1.x, 620,500,10);
+        if (pl.intersects(ground2)){
+            flag=0;
+            p.y = 420;  //Speed
             map.back1.y=0;
-        }*/
+        }
+        // trite platform
+        Rectangle plat3 = new Rectangle(6750 - map.back1.x, 120 ,600,10);
+        if (pl.intersects(plat3)){
+            if (flag== 0)
+            {
+                jump=false;
+                p.y = 120;   //Speed
+                flag=3;
+            }
+        }
+        // prin trito  platform gia land
+        Rectangle prin3 = new Rectangle(6500 - map.back1.x, 230 ,150,150);
+        if (pl.intersects(prin3)){
+            if (flag== 3)
+            {
+                flag=0;
+            }
+        }
 
     }
 

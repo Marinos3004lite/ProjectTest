@@ -37,9 +37,7 @@ public class MenuStartScreen{
                 MenuStartScreen.frame.pack();
                 MenuStartScreen.frame.setSize(1280, 720);
                 MenuStartScreen.frame.setVisible(true);
-                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() -
-                        MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() -
-                        MenuStartScreen.frame.getSize().height) / 2);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
             }
         });
         shopButton.addActionListener(new ActionListener() {
@@ -50,15 +48,14 @@ public class MenuStartScreen{
                 MenuStartScreen.frame.pack();
                 MenuStartScreen.frame.setSize(1280, 720);
                 MenuStartScreen.frame.setVisible(true);
-                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() -
-                        MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() -
-                        MenuStartScreen.frame.getSize().height) / 2);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
             }
         });
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //MenuStartScreen.frame.setVisible(false);
+                MenuStartScreen.frame.setVisible(false);
                 Razmazio rz = new Razmazio();
             }
         });

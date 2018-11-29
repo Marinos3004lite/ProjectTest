@@ -49,7 +49,7 @@ public class GamePanel extends Player
         hp.isDead();
         if (hp.dead)
             j.stop();
-        if ((p.y == 420 & direction != 3 & direction != 2)||(p.y == 40 & direction != 3 & direction != 2)) // to turn player
+        if (((p.y == 420)||(p.y == 40)||(p.y == 165)||(p.y == 120)) & direction != 3 & direction != 2) // to turn player
         // in normal still
         // state after jump
         {
@@ -91,14 +91,25 @@ public class GamePanel extends Player
         g2d.setColor(Color.orange);
         //g2d.fillRect(2970 - map.back1.x,615,60,500); // keno1
         //g2d.fillRect(6665 - map.back1.x,615,1375,500); // keno2
-        /*g2d.fillRect(2110 - map.back1.x, 230 ,380,10); // plat1
+        g2d.fillRect(2130 - map.back1.x, 40 ,340,10); // plat1
         for (int w = 0; w < 85 ; w++)
             g2d.fillRect(5300 + (w * 3) - map.back1.x, 620 - (w * 3), 10, 10);
         g2d.fillRect(5570 - map.back1.x, 365,245,10);
         for (int w = 85; w >=0 ; w--)
             g2d.fillRect(6070-(w*3) - map.back1.x, 620 - (w*3),10,10);
         g2d.fillRect(6070 - map.back1.x, 620,500,10);
-        g2d.fillRect(5000 - map.back1.x, 620,300,10);*/
+        g2d.fillRect(695 - map.back1.x, 620,2150,10);
+        g2d.fillRect(3160 - map.back1.x, 620,2150,10);
+
+        g2d.fillRect(1900 - map.back1.x, 230 ,150,150); // prin1
+        g2d.fillRect(2540 - map.back1.x, 230 ,150,150); // meta1
+        g2d.fillRect(2970 - map.back1.x, 230 ,150,150);
+        g2d.fillRect(2765 - map.back1.x, 40 ,100,10); //plat2
+        g2d.fillRect(5100 - map.back1.x, 230 ,330,90);
+        g2d.fillRect(5900 - map.back1.x, 230 ,320,300);
+        g2d.fillRect(6750 - map.back1.x, 120 ,600,10);//plat3
+        g2d.fillRect(6500 - map.back1.x, 230 ,150,150);
+
         checkCollisions();
         repaint();
 
