@@ -4,13 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Time;
 import java.util.ArrayList;
 
 public class GamePanel extends Player
 {
-    //MapManager map = new MapManager();
+        Enemy enemy = new Enemy();
 
-    public void paintComponent(Graphics g) {
+        Tank tank1 = new Tank(62 - map.back1.x, 450);
+
+        public void colwithEnemy()
+        {
+            Rectangle pl = p.getBounds();
+            //Rectangle tank  = tank1.tankip.getBounds();
+            Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, enemy.tankip.y, enemy.tankip.width,
+                    enemy.tankip.height);
+
+            if (pl.intersects(tank)){
+                enemy.giveDmg();
+                hp.takeDamage();
+            System.out.println("hi");
+            }
+        }
+
+        public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2d = (Graphics2D) g;
@@ -20,9 +37,9 @@ public class GamePanel extends Player
         // setting background points and cash in the game
         map.setBackground(g2d);
         ammo.paintComponent(g2d);
-        /*for (int i=0;i <coins.size();i++ )
-            coins.get(0).paintComponent(g2d);*/
 
+        //enemy.helimove2(g2d
+        enemy.tankmove(g2d);
 
         point.paintComponent(g2d);
         ///map.sprite1.setVisible(false);
@@ -69,6 +86,23 @@ public class GamePanel extends Player
             k = k + 100;
             //System.out.println(map.coins.get(w).coin.isVisible());
         }
+
+        /*g2d.drawImage(tank1.tankip.image, tank1.tankip.x - map.back1.x, tank1.tankip.y, null);
+        if (tank1.movement2 == 0 && tank1.tankip.x - map.back1.x < 500) {
+            if (tank1.tankip.x > 20 ) {
+                    tank1.tankip.x -= tank1.Speed2;
+                    g2d.drawImage(tank1.tankip.image, tank1.tankip.x - map.back1.x,tank1.tankip.y, null);
+            } else {
+                tank1.movement2 = 1;
+            }
+        } else {
+            tank1.tankip.x += tank1.Speed2;
+                g2d.drawImage(tank1.tankip.image, tank1.tankip.x - map.back1.x, tank1.tankip.y, null);
+                if ((tank1.tankip.x > 840)) {
+                    tank1.movement2 = 0;
+                }
+        }*/
+
         g2d.drawImage(p.image, p.x, p.y, this); // Drawing the character image
         g2d.drawImage(map.back4.image, 700 - map.back1.x, map.back1.y, null); // Drawing background
         hp.paintComponent(g2d);
@@ -110,10 +144,17 @@ public class GamePanel extends Player
         g2d.fillRect(6750 - map.back1.x, 120 ,600,10);//plat3
         g2d.fillRect(6500 - map.back1.x, 230 ,150,150);
 
+        //Rectangle tank  = enemy.tankip.getBounds();Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, enemy.tankip.y, enemy.tankip.width,
+         //           enemy.tankip.height);
+        //System.out.println(tank);
+        //g2d.fill(tank);
+        //g2d.fill(pl);
+
+        //System.out.print("x = "+ (enemy.tankip.x));
+        //System.out.println(" x2 = "+ (enemy.tankip.x - map.back1.x));
+        colwithEnemy();
         checkCollisions();
         repaint();
-
-
     } // end paintComponent
 }// end class
 
