@@ -12,15 +12,15 @@ public class Player extends JPanel implements ActionListener {
     protected Image rz_still_right = new ImageIcon("src/razmazio\\still_right.gif").getImage(); // Standing still
     protected Image rz_still_left = new ImageIcon("src/razmazio\\still_left.gif").getImage(); // Walking left
     protected Image rz_walk_left2 = new ImageIcon("src/razmazio\\player_walk_left.gif").getImage(); //
+    protected Image rz_walk_right2 = new ImageIcon("src/razmazio/player_walk_right.gif").getImage();
     protected Image rz_jump_right = new ImageIcon("src/razmazio\\still_right.png").getImage(); // Jumping
     protected Image rz_jump_left = new ImageIcon("src/razmazio\\still_left.png").getImage(); //
-    protected Image rz_walk_right2 = new ImageIcon("src/razmazio/player_walk_right.gif").getImage();
 
     protected Image obj = rz_still_right; // Temporary Image reference
 
 
     //protected int p.x = 500; // character x and y coordinates
-    ///protected int p.y = 420;
+    //protected int p.y = 420;
     Sprite p = new Sprite(500,420); /// ??
 
     static int direction = 0; // 0=still 1=up , 2=right , 3=left , 4=down
@@ -37,6 +37,7 @@ public class Player extends JPanel implements ActionListener {
     Ammo ammo = new Ammo();
     //Coins coin = new Coins();
     Points point = new Points();
+    public int coinscol=0;
 
     int flag = 0;
     protected static boolean moveableRight = true; // variable for collision detection
@@ -151,7 +152,6 @@ public class Player extends JPanel implements ActionListener {
         //System.out.println(map.back1.getBounds().x);
         //System.out.println(p.getBounds().y);
         //System.out.println(flag);
-        checkCollisions();
         //checkCollisionsC();
 
         Thread r = new Thread(() -> {
@@ -307,12 +307,12 @@ public class Player extends JPanel implements ActionListener {
                 }
             }
         }
-        /*else if (flag == 1)
+        else if (flag == 1)
         {
-            flag=2;
+            flag=0;
             jump = false;
         }
-        else if (flag == 2)
+        /*else if (flag == 2)
         {
             if (moveableDown) {
                 if (jump & p.y >= -50) // For upward motion during jump
@@ -353,16 +353,79 @@ public class Player extends JPanel implements ActionListener {
     }
     public void checkCollisions()/// working
     {
+        Rectangle pl = p.getBounds();
         //Prwto keno
+        Rectangle keno1 = new Rectangle(2970 - map.back1.x,615,60,500);
+        if (pl.intersects(keno1)){
+            p.y = p.y + 10;   //Speed
+            hp.hp=0;
+            System.out.println("hello there ");
+        }
+        //Deftero keno
+        Rectangle keno2 = new Rectangle(6665 - map.back1.x,615,1375,500);
+        if (pl.intersects(keno2)){
+            p.y = p.y + 10;   //Speed
+            hp.hp=0;
+        }
+        // prwto platform
+        Rectangle plat1 = new Rectangle(2110 - map.back1.x, 230 ,380,10);
+        if (pl.intersects(plat1)){
+            if (flag== 0)
+            {
+                p.y = 40;   //Speed
+                flag=1;
+            }
+        }
+        //Aniforo prwto
+        for (int w = 0; w < 85 ; w++) {
+            Rectangle anif = new Rectangle(5300 + (w * 3) - map.back1.x, 620 - (w * 3), 10, 10);
+            if (pl.intersects(anif)){
+                //if (flag== 0)
+                {
+                    p.y = 460 - (w * 3);   //Speed
+                    flag=1;
+                }
+            }
+        }
+        Rectangle flat = new Rectangle(5570 - map.back1.x, 365,245,10);
+        if (pl.intersects(flat)){
+            //if (flag== 0)
+            {
+                p.y = 165;  //Speed
+                flag=1;
+            }
+        }
+        for (int w = 85; w >=0 ; w--) {
+            Rectangle katif= new Rectangle(6070-(w*3) - map.back1.x, 620 - (w*3),10,10);
+            if (pl.intersects(katif)){
+                //if (flag== 0)
+                {
+                    p.y = 410 - (w * 3);   //Speed
+                    flag=1;
+                }
+            }
+        }
+        Rectangle ground2 = new Rectangle(6070 - map.back1.x, 620,500,10);
+        if (pl.intersects(ground2)){
+                flag=0;
+                p.y = 420;  //Speed
+                map.back1.y=0;
+            }
+        Rectangle ground1 = new Rectangle(5000 - map.back1.x, 620,500,10);
+        if (pl.intersects(ground1)){
+            flag=0;
+            p.y = 420;  //Speed
+            map.back1.y=0;
+        }
+
         /*if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-        }*/
+        }
         //Aniforo prwto
         if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
         {
             //p.y = map.back1.getBounds().y;   //Speed
-            //p.x += ;
             map.back1.y=0;
             System.out.println("hola");
             jump = false;
@@ -373,11 +436,6 @@ public class Player extends JPanel implements ActionListener {
             flag = 1;
         }
         if (map.back1.getBounds().x>=7725 &&map.back1.getBounds().x<=7815&&p.getBounds().y <= -10) {
-            hp.hp=0;
-        }
-        //Deftero keno
-        if (map.back1.getBounds().x>=6050 &&map.back1.getBounds().x<=7560&&p.getBounds().y>= 420) {
-            p.y = p.y + 10;   //Speed
             hp.hp=0;
         }
         // prwto platform
@@ -411,39 +469,62 @@ public class Player extends JPanel implements ActionListener {
         {
             flag =0;
             map.back1.y=0;
-        }
+        }*/
 
     }
 
     public void setCoin() {
     coins = new ArrayList<>();
     int x=2160;
-        for (int i=0;i < 3;i++ ) {
-        Coins cn = new Coins(x - map.back1.x,40);
+    int k= 4000;
+    for (int i = 0; i < 3; i++) {
+        Coins cn = new Coins(x - map.back1.x, 40);
         coins.add(cn.coin);
-        x=x+100;
+        x = x + 100;
     }
-        System.out.println("hi");
-
+    for (int i = 3; i < 6; i++) {
+        Coins cn = new Coins(k - map.back1.x, 420);
+        coins.add(cn.coin);
+        k = k + 100;
+    }
 }// end
 
-    public void checkCollisionsC()
-    {
-        newCoins = getCoins();
+    public void CheckCoin() {
+    coins = new ArrayList<>();
+    int x=2160;
+    int k= 4000;
+    for (int i=0;i < 3;i++ ) {
+        Coins cn = new Coins(x - map.back1.x, 40);
+        coins.add(cn.coin);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        x = x + 100;
+    }
+    for (int i = 3; i < 6; i++) {
+        Coins cn = new Coins(k - map.back1.x, 420);
+        coins.add(cn.coin);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        k = k + 100;
+    }
+}// end
 
+    public void checkCollisionsC(int i)
+    {
 
         Rectangle pl = p.getBounds();
-        for (int i = 0; i < newCoins.size(); i++) {
-            //System.out.println(coins.get(i).getBounds());
-            if (pl.intersects(newCoins.get(i).getBounds())) {
-                System.out.println("OH hi Mark! ");
-                newCoins.get(i).setVisible(false);
-                //coins.add(coins.get(i));
-                coins.remove(i);
-                //getCoins();
-                start++;
+            if(newCoins.get(i).isVisible())
+            {
+                if (pl.intersects(newCoins.get(i).getBounds()))
+                {
+                    //System.out.println("OH hi Mark! ");
+                    newCoins.get(i).setVisible(false);
+                    start=1;
+                    coinscol++;
+                }
+
             }
-        }
+            //else System.out.println("OH BYE Mark! ");
     }
 }
 

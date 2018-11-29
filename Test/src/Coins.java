@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Coins extends JPanel {
 
-    public int coins;
+    public int num_coins;
     Sprite coin;
 
     public Coins(int x, int y) {
@@ -26,12 +26,12 @@ public class Coins extends JPanel {
     }
     public void Add_Coins(int x){
         if(x >= 0) {
-            this.coins = this.coins + x;
+            this.num_coins = this.num_coins + x;
         }
     }
     public void Sub_Coins(int x){
         if(x >= 0) {
-            this.coins = this.coins - x;
+            this.num_coins = this.num_coins - x;
         }
     }
 
@@ -42,7 +42,7 @@ public class Coins extends JPanel {
         //  g.drawImage(MapManager.background, 700 - bk_x, 0, null); // Drawing background
         g.setColor(Color.BLACK);
         g.setFont(new Font("Monospaced", Font.BOLD, 20));
-        g.drawString("COINS = " + coins,450, 60);
+        g.drawString("COINS = " + num_coins,450, 60);
     }
 
 }
