@@ -332,13 +332,14 @@ public class Player extends JPanel implements ActionListener {
             }
         }
     }
+
     public void checkCollisions()/// working
     {
         //Prwto keno
-        /*if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
+        if (map.back1.getBounds().x>=2375 &&map.back1.getBounds().x<=2540&&p.getBounds().y>= 420) {
             p.y = p.y + 10;   //Speed
             hp.hp=0;
-        }*/
+        }
         //Aniforo prwto
          if (map.back1.getBounds().x >= 4750 && map.back1.getBounds().x <= 5050)
         {
@@ -394,7 +395,7 @@ public class Player extends JPanel implements ActionListener {
     {
         Rectangle r = map.coins.coin.getBounds();
         Rectangle pl = p.getBounds();
-        System.out.println(p.getBounds());
+        //System.out.println(p.getBounds().);
         if (pl.intersects(r))
             System.out.print("Hi");
     }

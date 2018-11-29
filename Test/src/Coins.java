@@ -19,9 +19,9 @@ public class Coins extends JPanel {
             getImageDimensions();
         }
 */
-
-    public Coins(int x, int y) {
+    public Coins() {
         coin.loadImage("src/razmazio\\coin.gif");
+        Rectangle r = coin.getBounds();
     }
     /*void Add_Coins(int x){
         if(x >= 0) {
@@ -33,8 +33,6 @@ public class Coins extends JPanel {
             this.coins = this.coins - x;
         }
     }*/
-
-
 
     public void paintComponent(Graphics g) {
      super.paintComponent(g);

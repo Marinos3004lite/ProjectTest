@@ -19,7 +19,7 @@ public class MapManager
 
     final public int BKMIN_X = 1000, BKMAX_X = 10000; // Min and Max of
 
-    Coins coins = new Coins(0,0);
+    Coins coins = new Coins();
 
     public MapManager()
     {
