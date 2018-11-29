@@ -2,32 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="Collisions works!">
-      <change afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Helicopter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Tank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/razmazio/EnemyHelicopter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/razmazio/tanky.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/razmazio/tankyy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/razmazio/zombie.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/razmazio/zombietroll.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Bullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Coins.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Coins.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Health.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Health.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Image/Capture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Image/Goomba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Image/Goomba123123.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Coins.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/Capture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/Goomba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/Goomba123123.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MapManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuStartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuStartScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
@@ -296,6 +282,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="2768" />
+          <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
     </session>
@@ -555,7 +542,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -629,7 +616,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="152" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="254" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543502679179" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543502956642" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ProjectTest-master/ProjectTest-master/Test" />
     <property name="project.structure.last.edited" value="Project" />
@@ -1648,7 +1635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543456596877</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Enemy">
+      <created>1543503305513</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543503305513</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1661,7 +1655,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" weight="0.16577181" />
@@ -1729,7 +1723,8 @@
     <MESSAGE value="fuck marinos 3" />
     <MESSAGE value="fuck marinos pro" />
     <MESSAGE value="Collisions works!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Collisions works!" />
+    <MESSAGE value="Enemy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enemy" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
