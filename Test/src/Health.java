@@ -59,7 +59,9 @@ public class Health extends  JPanel{
         }
         if (win)
         {
-            g.drawString("ALL I DO IS WIN WIN WIN ..",0, 200);
+            Image firework = new ImageIcon("src/razmazio\\firework.gif").getImage();
+            g.drawImage(firework,0,0,null);
+            g.drawString("WINNER WINNER NO DINNER",20, 120);
         }
     }
 }

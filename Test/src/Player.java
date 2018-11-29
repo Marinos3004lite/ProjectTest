@@ -96,7 +96,7 @@ public class Player extends JPanel implements ActionListener {
                         hp.isDead();
                         if (hp.dead)
                             fr.stop();
-                        hp.takeDamage();
+                        //hp.takeDamage();
                     }
                 } else if (p.image == rz_still_left || p.image == rz_walk_left2) {
                     if ((kp.getKeyCode() == KeyEvent.VK_ENTER)) {
@@ -107,7 +107,7 @@ public class Player extends JPanel implements ActionListener {
                         fl.start();
                         if (hp.dead)
                             fl.stop();
-                        hp.takeDamage();
+                        //hp.takeDamage();
                     }
                 }
 
@@ -651,37 +651,103 @@ public class Player extends JPanel implements ActionListener {
 
     public void setCoin() {
     coins = new ArrayList<>();
-    int x=2160;
-    int k= 4000;
-    for (int i = 0; i < 3; i++) {
-        Coins cn = new Coins(x - map.back1.x, 40);
+    int s=1860;
+    int x=2265;
+    int k= 3200;
+    for (int i = 0; i < 1; i++) {
+        Coins cn = new Coins(s - map.back1.x, map.back1.y + 420);
         coins.add(cn.coin);
-        x = x + 100;
     }
-    for (int i = 3; i < 6; i++) {
-        Coins cn = new Coins(k - map.back1.x, 420);
+    for (int i = 1; i < 3; i++) {
+        Coins cn = new Coins(x - map.back1.x, map.back1.y + 40);
         coins.add(cn.coin);
+        x = x + 515;
+    }
+    for (int i = 3; i < 8; i++) {
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 420);
+        coins.add(cn.coin);
+        k = k + 500;
+    }
+    for (int i = 8; i < 9; i++) {
+        k = k - 50;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 165);
+        coins.add(cn.coin);
+        k = k + 500;
+    }
+    for (int i = 9; i < 10; i++) {
         k = k + 100;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 420);
+        coins.add(cn.coin);
+    }
+    k = k + 320;
+    for (int i = 10; i < 12; i++) {
+        k = k + 300;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 120);
+        coins.add(cn.coin);
+    }
+    k = k + 350;
+    for (int i = 12; i < 30; i++) {
+        k = k + 10;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 0);
+        coins.add(cn.coin);
     }
 }// end
 
     public void CheckCoin() {
     coins = new ArrayList<>();
-    int x=2160;
-    int k= 4000;
-    for (int i=0;i < 3;i++ ) {
-        Coins cn = new Coins(x - map.back1.x, 40);
-        coins.add(cn.coin);
+    int s= 1860;
+    int x= 2265;
+    int k= 3200;
+    for (int i = 0; i < 1; i++) {
+        Coins cn = new Coins(s - map.back1.x, map.back1.y + 420);
         if (!(newCoins.get(i).isVisible()))
             cn.coin.setVisible(false);
-        x = x + 100;
+        coins.add(cn.coin);
     }
-    for (int i = 3; i < 6; i++) {
-        Coins cn = new Coins(k - map.back1.x, 420);
-        coins.add(cn.coin);
+    for (int i = 1; i < 3; i++) {
+        Coins cn = new Coins(x - map.back1.x, map.back1.y + 40);
         if (!(newCoins.get(i).isVisible()))
             cn.coin.setVisible(false);
+        coins.add(cn.coin);
+        x = x + 515;
+    }
+    for (int i = 3; i < 8; i++) {
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 420);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        coins.add(cn.coin);
+        k = k + 500;
+    }
+    for (int i = 8; i < 9; i++) {
+        k = k - 50;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 165);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        coins.add(cn.coin);
+        k = k + 500;
+    }
+    for (int i = 9; i < 10; i++) {
         k = k + 100;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 420);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        coins.add(cn.coin);
+    }
+    k = k + 320;
+    for (int i = 10; i < 12; i++) {
+        k = k + 300;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 120);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        coins.add(cn.coin);
+    }
+    k = k + 350;
+    for (int i = 12; i < 30; i++) {
+        k = k + 10;
+        Coins cn = new Coins(k - map.back1.x, map.back1.y + 0);
+        if (!(newCoins.get(i).isVisible()))
+            cn.coin.setVisible(false);
+        coins.add(cn.coin);
     }
 }// end
 

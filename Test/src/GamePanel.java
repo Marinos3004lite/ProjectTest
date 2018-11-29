@@ -11,7 +11,7 @@ public class GamePanel extends Player
 {
         Enemy enemy = new Enemy();
 
-        Tank tank1 = new Tank(62 - map.back1.x, 450);
+        //Tank tank1 = new Tank(62 - map.back1.x, 450);
 
         public void colwithEnemy()
         {
@@ -76,16 +76,11 @@ public class GamePanel extends Player
             if (p.image == rz_jump_right)
                 p.image = rz_still_right;
         }
-        int x =2160;
-        int k = 4000;
         for (int w = 0; w < newCoins.size(); w++)
         {
             checkCollisionsC(w);
             if (newCoins.get(w).visible)
                 g2d.drawImage(coins.get(w).image, newCoins.get(w).x, newCoins.get(w).y, null); // Drawing background
-            x = x + 100;
-            k = k + 100;
-            //System.out.println(map.coins.get(w).coin.isVisible());
         }
 
         /*g2d.drawImage(tank1.tankip.image, tank1.tankip.x - map.back1.x, tank1.tankip.y, null);
