@@ -35,6 +35,7 @@ public class Player extends JPanel implements ActionListener {
     Health hp = new Health();
     Ammo ammo = new Ammo();
     Points point = new Points();
+    Sound sound = new Sound();
 
     public int coinscol = 0;
 
@@ -63,6 +64,7 @@ public class Player extends JPanel implements ActionListener {
         bulletsL = new ArrayList();
         newCoins = getCoins();
 
+        sound.Sound("src\\\\tempOST33.wav");
         addKeyListener(new KeyAdapter() // Movement
         {
             public void keyPressed(KeyEvent kp) {
@@ -152,12 +154,14 @@ public class Player extends JPanel implements ActionListener {
         if (direction == 3)
             l.start();
         hp.isDead();
-        if (hp.dead||hp.win)
-        {
+        if (hp.dead||hp.win) {
             //adirection = 0;
             r.stop();
             l.stop();
         }
+
+        if (hp.isDead())
+            sound.Close();
 
         ArrayList bullets = Player.getBulletsR();
         ArrayList bulletss = Player.getBulletsL();

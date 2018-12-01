@@ -24,7 +24,6 @@ public class MenuStartScreen{
 
     public MenuStartScreen() {
 
-
         optionsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +73,6 @@ public class MenuStartScreen{
             }
         });
     }
-
 
     public static void main(String args[]) {
         frame = new JFrame("Menu");

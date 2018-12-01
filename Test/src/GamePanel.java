@@ -37,16 +37,14 @@ public class GamePanel extends Player
         Graphics2D g2d = (Graphics2D) g;
         requestFocus(); // get focus after changing card
         setFocusable(true);
-        //test.setBackground(g);
-        // setting background points and cash in the game
+
         map.setBackground(g2d);
         ammo.paintComponent(g2d);
 
-        //enemy.helimove2(g2d
         enemy.tankmove(g2d);
 
         point.paintComponent(g2d);
-        ///map.sprite1.setVisible(false);
+
         if (start == 0)
         {
             setCoin();
