@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/MenuStartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/MenuStartScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player.class" afterDir="false" />
-    </list>
+    <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -510,7 +498,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1920" />
     <option name="height" value="1040" />
   </component>
@@ -546,7 +534,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="152" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE" value="left" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="290" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543678019067" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543678815955" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="E:/Downloads/DroneExplore/DroneExplore" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -681,7 +669,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.17004265" />
