@@ -4,6 +4,7 @@ import java.awt.*;
 public class Health extends  JPanel{
 
     int hp = 300;
+    public boolean win = false;
     public boolean dead =false;
 
     public void takeDamage()
@@ -51,10 +52,28 @@ public class Health extends  JPanel{
         }
         g.setFont(new Font("Monospaced", Font.BOLD, 70));
         g2d.setColor(Color.RED);
-        if (hp <= 0)
+        if (hp <= 0) {
+
+            g2d.setColor(Color.black);
+            g2d.fillRect(0, 0, 1024, 750);
+            g2d.setColor(Color.red);
+            g.drawString("GAME OVER", 350, 200);
+            g.drawString(":(", 490, 350);
+           // MenuGameOver menugameover =  new MenuGameOver();
+            //menugameover.panel.setVisible(true);
+            // create replay
+
+            //Razmazio d = new Razmazio();
+            //kati.panel.setVisible(true);
+            //hp=300;
+        }
+        if (win)
         {
-            g.drawString("GAME OVER",350, 200);
-            g.drawString(":(",490, 350);
+            Image firework = new ImageIcon("src/razmazio\\firework.gif").getImage();
+            g.drawImage(firework,0,0,null);
+            g.drawString("WINNER WINNER NO DINNER",20, 120);
+
+
         }
     }
 }

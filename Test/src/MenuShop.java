@@ -8,6 +8,7 @@ public class MenuShop {
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public JButton backButton;
+    public Timer time;
 
 
     public MenuShop() {
@@ -24,5 +25,20 @@ public class MenuShop {
 
             }
         });
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        panel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Image background = new ImageIcon("src/animated_bg_finished.gif").getImage();
+                g.drawImage(background, 0, 0,1280,720, null);
+                time = new Timer(1, null);
+                time.start();
+                repaint();
+            }
+        };
     }
 }

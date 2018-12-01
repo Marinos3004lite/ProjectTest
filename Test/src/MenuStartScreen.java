@@ -3,19 +3,14 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.ImageIcon;
 import java.awt.*;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.awt.image.ImageObserver;
 
-
-public class MenuStartScreen extends GamePanel{
+public class MenuStartScreen{
     public JButton playButton;
     public JButton optionsButton;
     public JButton helpButton;
@@ -24,22 +19,21 @@ public class MenuStartScreen extends GamePanel{
     public static JFrame frame;
     public JPanel panel;
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public JLabel l1;
-    public static ImageIcon i = new ImageIcon("texture.jpg");
-    public static JLabel l = new JLabel();
-    protected Image background = new ImageIcon("src/razmazio\\still_right.png").getImage(); // Standing still
+    public Timer time;
 
 
     public MenuStartScreen() {
+
+
         optionsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MenuStartScreen.frame.setContentPane(new MenuOptions().panel);
                 MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 MenuStartScreen.frame.pack();
-                MenuStartScreen.frame.setSize(1280,720);
+                MenuStartScreen.frame.setSize(1280, 720);
                 MenuStartScreen.frame.setVisible(true);
-                MenuStartScreen.frame.setLocation((int)(screenSize.getWidth()- MenuStartScreen.frame.getSize().width)/2,(int)(screenSize.getHeight()- MenuStartScreen.frame.getSize().height)/2);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
             }
         });
         shopButton.addActionListener(new ActionListener() {
@@ -48,42 +42,65 @@ public class MenuStartScreen extends GamePanel{
                 MenuStartScreen.frame.setContentPane(new MenuShop().panel);
                 MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 MenuStartScreen.frame.pack();
-                MenuStartScreen.frame.setSize(1280,720);
+                MenuStartScreen.frame.setSize(1280, 720);
                 MenuStartScreen.frame.setVisible(true);
-                MenuStartScreen.frame.setLocation((int)(screenSize.getWidth()- MenuStartScreen.frame.getSize().width)/2,(int)(screenSize.getHeight()- MenuStartScreen.frame.getSize().height)/2);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
             }
         });
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                Razmazio rz = new Razmazio();
+                //MenuStartScreen.frame.setVisible(false);
                 MenuStartScreen.frame.setVisible(false);
+                Razmazio rz = new Razmazio();
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(-1);
+            }
+        });
+        helpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuStartScreen.frame.setContentPane(new MenuHelp().panel);
+                MenuStartScreen.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                MenuStartScreen.frame.pack();
+                MenuStartScreen.frame.setSize(1280, 720);
+                MenuStartScreen.frame.setVisible(true);
+                MenuStartScreen.frame.setLocation((int) (screenSize.getWidth() - MenuStartScreen.frame.getSize().width) / 2, (int) (screenSize.getHeight() - MenuStartScreen.frame.getSize().height) / 2);
+
             }
         });
     }
-    public void setBackground(Graphics g) {
-        g.drawImage(background, 0, 0, null); // Drawing background
-    }
+
 
     public static void main(String args[]) {
         frame = new JFrame("Menu");
         frame.setContentPane(new MenuStartScreen().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(1280,720);
+        frame.setSize(1280, 720);
         frame.setVisible(true);
-        frame.setLocation((int)(screenSize.getWidth()-frame.getSize().width)/2,(int)(screenSize.getHeight()-frame.getSize().height)/2);
-
+        frame.setLocation((int) (screenSize.getWidth() - frame.getSize().width) / 2, (int) (screenSize.getHeight() - frame.getSize().height) / 2);
     }
 
-
-
-
-    private void createUIComponents() {
+    private void createUIComponents()
+    {
         // TODO: place custom component creation code here
+        panel = new JPanel()
+        {
+            @Override
+            protected void paintComponent(Graphics g)
+            {
+                super.paintComponent(g);
+                Image background = new ImageIcon("src/animated_bg_finished.gif").getImage();
+                g.drawImage(background, 0, 0, 1280, 720, null);
+                time = new Timer(1, null);
+                time.start();
+                repaint();
+            }
+        };
     }
-
-
-
 }

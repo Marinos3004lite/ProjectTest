@@ -48,6 +48,11 @@ public class Sprite {
 
     public void setVisible(Boolean visible) {
         this.visible = visible;
+        if (this.visible)
+        {
+            width=0;
+            height=0;
+        }
     }
 
     public Rectangle getBounds() {
