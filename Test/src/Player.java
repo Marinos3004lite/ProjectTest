@@ -164,6 +164,7 @@ public class Player extends JPanel implements ActionListener {
         if (hp.isDead())
             sound.Close();
 
+
         ArrayList bullets = Player.getBulletsR();
         ArrayList bulletss = Player.getBulletsL();
         Bullet m;
@@ -201,7 +202,7 @@ public class Player extends JPanel implements ActionListener {
             else
                 bullets.remove(w);
         }
-        repaint(); //repaint after 30ms
+        //repaint(); //repaint after 30ms
     }
 
     private void right() {
