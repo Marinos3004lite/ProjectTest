@@ -5,7 +5,7 @@ public class Enemy extends Player{
     protected Sprite  helip, tankip,zombik;
     int movement2=0,movement = 0;
     protected int posY3 = 350, posY2 = 450, posY = 100,
-            posX3 = 3500, posX2 = 2100,posX = 2000, SpeedX = 2,
+            posX3 = 5000, posX2 = 2100,posX = 8000, SpeedX = 2,
             Speed2 = 1,Speed = 2,Speed3 = 3;
     //protected double y;
     public int tankHp = 100;
@@ -33,7 +33,7 @@ public class Enemy extends Player{
     }
     private void initPhoto3(int x, int y) {
         zombik = new Sprite(x, y);
-        zombik.loadImage("src/razmazio/zombie.gif");
+        zombik.loadImage("src/razmazio/zombietroll_fix.gif");
         zombik.getImageDimensions();
         zombik.visible = true;
     }
@@ -73,12 +73,12 @@ public class Enemy extends Player{
                             helip.y += Speed;
                             // Check if the ball moves over the bounds
                             // If so, adjust the position and speed.
-                            if (helip.x - helip.width < 0) {
+                            if (helip.x - helip.width < 6000) {
                                 SpeedX = -SpeedX; // Reflect along normal
-                                helip.x = helip.width; // Re-position the ball at the edge
-                            } else if (helip.x + helip.width > 1024) {
+                                helip.x = 6000 + helip.width; // Re-position the ball at the edge
+                            } else if (helip.x + helip.width > 8300) {
                                 SpeedX = -SpeedX;
-                                helip.x = 1024 - helip.width;
+                                helip.x = 8300 - helip.width;
                             }
                             // May cross both x and y bounds
                             if (helip.y - helip.height < 0) {
@@ -134,7 +134,7 @@ public class Enemy extends Player{
         if (zombik.isVisible()) {
             g2d.drawImage(zombik.image, zombik.x - mapx, mapy + zombik.y, null);
             if (movement == 0) {
-                if (zombik.x > 20) {
+                if (zombik.x > 3050) {
                     zombik.x -= Speed3;
                     //g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
                 } else {
@@ -144,7 +144,7 @@ public class Enemy extends Player{
                 zombik.x += Speed3;
 
                 //g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
-                if ((zombik.x > 840)) {
+                if ((zombik.x > 5200)) {
                     movement = 0;
                 }
             }

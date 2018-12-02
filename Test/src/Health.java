@@ -52,8 +52,8 @@ public class Health extends  JPanel{
         }
         g.setFont(new Font("Monospaced", Font.BOLD, 70));
         g2d.setColor(Color.RED);
-        if (hp <= 0) {
-
+        if (hp <= 0)
+        {
             g2d.setColor(Color.black);
             g2d.fillRect(0, 0, 1024, 750);
             g2d.setColor(Color.red);
@@ -72,8 +72,6 @@ public class Health extends  JPanel{
             Image firework = new ImageIcon("src/razmazio\\firework.gif").getImage();
             g.drawImage(firework,0,0,null);
             g.drawString("WINNER WINNER NO DINNER",20, 120);
-
-
         }
     }
 }

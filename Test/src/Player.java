@@ -65,7 +65,7 @@ public class Player extends JPanel implements ActionListener {
         newCoins = getCoins();
 
 
-        //sound.Sound("src\\\\tempOST33.wav");
+        sound.Sound("src\\\\tempOST33.wav");
         addKeyListener(new KeyAdapter() // Movement
         {
             public void keyPressed(KeyEvent kp) {
@@ -794,10 +794,10 @@ public class Player extends JPanel implements ActionListener {
                 m.bsR.setVisible(false);
                 enemy.takeDmgT();
                 enemy.checkEnemyLife();
+                if (!enemy.tankip.isVisible())
+                    point.Add_Points(150);
             }
-            System.out.println("tank == "+ enemy.tankHp);
-            //if (!enemy.tankip.isVisible())
-            //  point.Add_Points(100);
+            //System.out.println("tank == "+ enemy.tankHp);
         }
         if (heli.intersects(m.bsR.getBounds()))
         {
@@ -806,10 +806,11 @@ public class Player extends JPanel implements ActionListener {
                 m.bsR.setVisible(false);
                 enemy.takeDmgH();
                 enemy.checkEnemyLife();
+                if (!enemy.helip.isVisible())
+                    point.Add_Points(200);
             }
-            System.out.println("heli == "+enemy.heliHp);
-            //if (!enemy.tankip.isVisible())
-            //  point.Add_Points(100);
+            //System.out.println("heli == "+enemy.heliHp);
+
         }
         if (zomb.intersects(m.bsR.getBounds()))
         {
@@ -818,10 +819,11 @@ public class Player extends JPanel implements ActionListener {
                 m.bsR.setVisible(false);
                 enemy.takeDmgZ();
                 enemy.checkEnemyLife();
+                if (!enemy.zombik.isVisible())
+                    point.Add_Points(150);
             }
-            System.out.println("zombie == "+enemy.zombieHp);
-            //if (!enemy.tankip.isVisible())
-            //  point.Add_Points(100);
+            //System.out.println("zombie == "+enemy.zombieHp);
+
         }
     }
     public void checkCollisionsBL(Bullet m,Enemy enemy)
@@ -839,9 +841,9 @@ public class Player extends JPanel implements ActionListener {
                 m.bsL.setVisible(false);
                 enemy.takeDmgT();
                 enemy.checkEnemyLife();
+                if (!enemy.tankip.isVisible())
+                    point.Add_Points(150);
             }
-            //if (!enemy.tankip.isVisible())
-              //  point.Add_Points(100);
         }
         if (heli.intersects(m.bsL.getBounds()))
         {
@@ -850,10 +852,11 @@ public class Player extends JPanel implements ActionListener {
                 m.bsL.setVisible(false);
                 enemy.takeDmgH();
                 enemy.checkEnemyLife();
+                if (!enemy.helip.isVisible())
+                    point.Add_Points(200);
             }
-            System.out.println("heli == "+enemy.heliHp);
-            //if (!enemy.tankip.isVisible())
-            //  point.Add_Points(100);
+            //System.out.println("heli == "+enemy.heliHp);
+
         }
         if (zomb.intersects(m.bsL.getBounds()))
         {
@@ -862,10 +865,9 @@ public class Player extends JPanel implements ActionListener {
                 m.bsL.setVisible(false);
                 enemy.takeDmgZ();
                 enemy.checkEnemyLife();
+                if (!enemy.zombik.isVisible())
+                    point.Add_Points(150);
             }
-
-            //if (!enemy.tankip.isVisible())
-            //  point.Add_Points(100);
         }
     }
 }
