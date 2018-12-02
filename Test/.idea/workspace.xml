@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6060dd1-0ce6-460e-9302-bf08b07489d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/GamePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Test/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Test/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sprite.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -217,7 +211,7 @@
     <session id="-1366532386">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.opened" value="5" />
@@ -227,14 +221,14 @@
         <counts>
           <entry key="form" value="15" />
           <entry key="java" value="3479" />
-          <entry key="txt" value="17" />
+          <entry key="txt" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="GUI_DESIGNER_FORM" value="15" />
           <entry key="JAVA" value="3479" />
-          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="PLAIN_TEXT" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -355,7 +349,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Player.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="496">
+                <state relative-caret-position="710">
                   <caret line="865" selection-start-line="865" selection-end-line="865" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -670,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543678015460</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="THE GAME IS OVER">
+      <created>1543725988140</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543725988140</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -699,7 +700,7 @@
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Messages" order="5" sideWeight="0.44339025" weight="0.3222558" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4857685" visible="true" weight="0.21550857" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4857685" weight="0.21550857" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4971537" weight="0.17119838" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -722,7 +723,8 @@
     <MESSAGE value="fuck marinos 2" />
     <MESSAGE value="fuck marinos 3" />
     <MESSAGE value="hey" />
-    <option name="LAST_COMMIT_MESSAGE" value="hey" />
+    <MESSAGE value="THE GAME IS OVER" />
+    <option name="LAST_COMMIT_MESSAGE" value="THE GAME IS OVER" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -879,7 +881,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
+        <state relative-caret-position="710">
           <caret line="865" selection-start-line="865" selection-end-line="865" />
           <folding>
             <element signature="imports" expanded="true" />
