@@ -10,6 +10,8 @@ public class Sprite {
     protected int height;
     protected boolean visible;
     protected Image image;
+    private boolean movementR;
+    private boolean movementL;
 
     public Sprite(int x, int y) {
 
@@ -57,5 +59,42 @@ public class Sprite {
 
     public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);
+    }
+
+    public boolean getMovementR()
+    {
+        return movementR;
+    }
+
+    public boolean getMovementL()
+    {
+        return movementL;
+    }
+
+    public void moveR()
+    {
+        if (!movementR && !movementL)
+            movementR = true;
+        if (movementR)
+            x = x + 15;
+        if (x > 1280)
+        {
+            visible = false;
+            movementR = false;
+        }
+    }
+
+    public void moveL()
+    {
+        if (!movementR && !movementL)
+            movementL=true;
+        if (movementL)
+            x = x - 15;
+        if (x  < 0)
+        {
+            visible = false;
+            movementL = false;
+        }
+
     }
 }

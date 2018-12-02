@@ -9,9 +9,11 @@ public class Enemy extends Player{
             Speed2 = 1,Speed = 2,Speed3 = 3;
     //protected double y;
     public int tankHp = 100;
+    public int zombieHp = 100;
+    public int heliHp = 100;
 
     public Enemy() {
-        initPhoto3(posX, posY);
+        initPhoto3(posX3, posY3);
         initPhoto2(posX2, posY2);
         initPhoto(posX, posY);
     }
@@ -56,90 +58,95 @@ public class Enemy extends Player{
         }
     }*/
 
-    public void helimove2(Graphics2D g2d) {
+    public void helimove2(Graphics2D g2d,int mapx,int mapy) {
+        if (helip.isVisible()) {
+            g2d.drawImage(helip.image, helip.x - mapx, mapy+helip.y, null);
 
-        g2d.drawImage(helip.image, posX - map.back1.x, posY, null);
-
-        int UPDATE_RATE = 0;
-        // Start the ball bouncing (in its own thread)
-        Thread gameThread = new Thread() {
-            public void run() {
-                try {
-                    while (true) { // Execute one update step
-                        // Calculate the ball's new position
-                        posX += SpeedX;
-                        posY += Speed;
-                        // Check if the ball moves over the bounds
-                        // If so, adjust the position and speed.
-                        if (posX - helip.width < 0) {
-                            SpeedX = -SpeedX; // Reflect along normal
-                            posX = helip.width; // Re-position the ball at the edge
-                        } else if (posX + helip.width > 1024) {
-                            SpeedX = -SpeedX;
-                            posX = 1024 - helip.width;
+            int UPDATE_RATE = 0;
+            // Start the ball bouncing (in its own thread)
+            Thread gameThread = new Thread() {
+                public void run() {
+                    try {
+                        while (true) { // Execute one update step
+                            // Calculate the ball's new position
+                            helip.x += SpeedX;
+                            helip.y += Speed;
+                            // Check if the ball moves over the bounds
+                            // If so, adjust the position and speed.
+                            if (helip.x - helip.width < 0) {
+                                SpeedX = -SpeedX; // Reflect along normal
+                                helip.x = helip.width; // Re-position the ball at the edge
+                            } else if (helip.x + helip.width > 1024) {
+                                SpeedX = -SpeedX;
+                                helip.x = 1024 - helip.width;
+                            }
+                            // May cross both x and y bounds
+                            if (helip.y - helip.height < 0) {
+                                Speed = -Speed;
+                                helip.y = helip.height;
+                            } else if (helip.y + helip.height > 350) {
+                                Speed = -Speed;
+                                helip.y = 350 - helip.height;
+                            }
+                            // Refresh the display
+                            repaint(); // Callback paintComponent()
+                            // Delay for timing control and give other threads a chance
+                            try {
+                                Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
+                            } catch (InterruptedException ex) {
+                            }
                         }
-                        // May cross both x and y bounds
-                        if (posY - helip.height < 0) {
-                            Speed = -Speed;
-                            posY = helip.height;
-                        } else if (posY + helip.height > 350) {
-                            Speed = -Speed;
-                            posY = 350 - helip.height;
-                        }
-                        // Refresh the display
-                        repaint(); // Callback paintComponent()
-                        // Delay for timing control and give other threads a chance
-                        try {
-                            Thread.sleep(1000 / UPDATE_RATE);  // milliseconds
-                        } catch (InterruptedException ex) {
-                        }
+                    } catch (ArithmeticException ex) {
                     }
-                }catch (ArithmeticException ex) {}
-            }
+                }
 
-            private void repaint() {
-            }
-        };
+                private void repaint() {
+                }
+            };
 
-        gameThread.start();  // Callback run()
+            gameThread.start();  // Callback run()
+        }
     }
 
-    public void tankmove(Graphics2D g2d) {
-
-        g2d.drawImage(tankip.image, tankip.x - map.back1.x, tankip.y, null);
-        if (movement2 == 0) {
-            if (tankip.x  > 1500) {
-                tankip.x -= Speed2 * 5;
-                //g2d.drawImage(tankip.image, tankip.x - map.back1.x,tankip.y, null);
-            }else {
-                    movement2 = 1;
-            }
-        } else {
-            tankip.x += Speed2 * 5;
-            //g2d.drawImage(tankip.image, tankip.x - map.back1.x, tankip.y, null);
-            if ((tankip.x  > 2700)) {
-                movement2 = 0;
+    public void tankmove(Graphics2D g2d,int mapx,int mapy) {
+        if (tankip.isVisible())
+        {
+            g2d.drawImage(tankip.image, tankip.x - mapx, mapy + tankip.y, null);
+            if (movement2 == 0) {
+                if (tankip.x  > 1500) {
+                    tankip.x -= Speed2 * 5;
+                    //g2d.drawImage(tankip.image, tankip.x - map.back1.x,tankip.y, null);
+                }else {
+                        movement2 = 1;
+                }
+            } else {
+                tankip.x += Speed2 * 5;
+                //g2d.drawImage(tankip.image, tankip.x - map.back1.x, tankip.y, null);
+                if ((tankip.x  > 2700)) {
+                    movement2 = 0;
+                }
             }
         }
     }
 
 
-    public void zombiemove(Graphics2D g2d) {
-
-        g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
-        if (movement == 0) {
-            if (posX3 >20 ) {
-                posX3 -= Speed3;
-                g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
+    public void zombiemove(Graphics2D g2d,int mapx,int mapy) {
+        if (zombik.isVisible()) {
+            g2d.drawImage(zombik.image, zombik.x - mapx, mapy + zombik.y, null);
+            if (movement == 0) {
+                if (zombik.x > 20) {
+                    zombik.x -= Speed3;
+                    //g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
+                } else {
+                    movement = 1;
+                }
             } else {
-                movement = 1;
-            }
-        } else {
-            posX3 += Speed3;
+                zombik.x += Speed3;
 
-            g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
-            if ((posX3 >840)) {
-                movement = 0;
+                //g2d.drawImage(zombik.image, posX3 - map.back1.x, posY3, null);
+                if ((zombik.x > 840)) {
+                    movement = 0;
+                }
             }
         }
     }
@@ -149,9 +156,27 @@ public class Enemy extends Player{
         hp.hp = hp.hp - 10;
     }
 
-    public void takeDmg()
+    public void takeDmgT()
     {
         tankHp -= 10;
+    }
+    public void takeDmgZ()
+    {
+        zombieHp -= 10;
+    }
+    public void takeDmgH()
+    {
+        heliHp -= 10;
+    }
+
+    public void checkEnemyLife()
+    {
+        if (tankHp<=0)
+            tankip.setVisible(false);
+        if (zombieHp<=0)
+            zombik.setVisible(false);
+        if (heliHp<=0)
+            helip.setVisible(false);
     }
 }
 

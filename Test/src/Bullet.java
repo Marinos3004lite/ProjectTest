@@ -5,32 +5,39 @@ import java.util.ArrayList;
 
 public class Bullet
 {
-    PointerInfo a = MouseInfo.getPointerInfo();
+    /*PointerInfo a = MouseInfo.getPointerInfo();
     Point b = a.getLocation();
     double m_x = b.getX();
-    double m_y = b.getY();
-    private double x, y;
+    double m_y = b.getY();*/
+    //private int x, y;
     private Image imgR;
     private Image imgL;
-    private boolean visible;
-    private boolean movementR;
-    private boolean movementL;
+    //private boolean visible;
+    //private boolean movementR;
+    //private boolean movementL;
+    Sprite bsR;
+    Sprite bsL;
 
-    public Bullet(double startX, double startY)
+    public Bullet(int startX, int startY)
     {
-        this.x = startX;
-        this.y = startY;
-        ImageIcon newBulletR = new ImageIcon("src/bulletR.png");
-        ImageIcon newBulletL = new ImageIcon("src/bulletL.png");
-        imgR = newBulletR.getImage();
-        imgL = newBulletL.getImage();
-        visible = true;
-        movementR = false;
-        movementL = false;
+        bsR = new Sprite(startX,startY);
+        bsL =new Sprite(startX,startY);
+        //this.x = startX;
+        //this.y = startY;
+        bsR.loadImage("src/bulletR.png");
+        bsL.loadImage("src/bulletL.png");
+        //ImageIcon newBulletR = new ImageIcon("src/bulletR.png");
+        //ImageIcon newBulletL = new ImageIcon("src/bulletL.png");
+        imgR = bsR.getImage();
+        imgL = bsL.getImage();
+        bsR.getImageDimensions();
+        bsL.getImageDimensions();
+        //movementR = false;
+        //movementL = false;
 
     }
 
-    public double getX()
+    /*public double getX()
     {
         return x;
     }
@@ -38,7 +45,7 @@ public class Bullet
     public double getY()
     {
         return y;
-    }
+    }*/
 
     public Image getImageR()
     {
@@ -50,47 +57,10 @@ public class Bullet
         return imgL;
     }
 
-    public boolean getVisible()
+    /*public boolean getVisible()
     {
         return visible;
-    }
-
-    public boolean getMovementR()
-    {
-        return movementR;
-    }
-
-    public boolean getMovementL()
-    {
-        return movementL;
-    }
-
-    public void moveR()
-    {
-        if (!movementR && !movementL)
-            movementR = true;
-        if (movementR)
-            x = x + 15;
-        if (x > 1280)
-        {
-            visible = false;
-            movementR = false;
-        }
-    }
-
-    public void moveL()
-    {
-        if (!movementR && !movementL)
-            movementL=true;
-        if (movementL)
-            x = x - 15;
-        if (x  < 0)
-        {
-            visible = false;
-            movementL = false;
-        }
-
-    }
+    }*/
 
     public void ShootBullet()
     {

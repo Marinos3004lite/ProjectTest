@@ -30,12 +30,12 @@ public class Player extends JPanel implements ActionListener {
     ArrayList<Sprite> newCoins;
     int start = 0;
     public static ArrayList<Sprite> coins;
-
     MapManager map = new MapManager();
     Health hp = new Health();
     Ammo ammo = new Ammo();
     Points point = new Points();
     Sound sound = new Sound();
+
 
     public int coinscol = 0;
 
@@ -64,7 +64,8 @@ public class Player extends JPanel implements ActionListener {
         bulletsL = new ArrayList();
         newCoins = getCoins();
 
-        sound.Sound("src\\\\tempOST33.wav");
+
+        //sound.Sound("src\\\\tempOST33.wav");
         addKeyListener(new KeyAdapter() // Movement
         {
             public void keyPressed(KeyEvent kp) {
@@ -131,10 +132,10 @@ public class Player extends JPanel implements ActionListener {
                     if (direction == 3) {
                         obj = rz_still_left; // if direction is left
                         direction = 0; // set still image
-                        System.out.println("Hi");
+                        //.println("Hi");
                     }
                 }
-                System.out.println("direction="+direction);
+                //System.out.println("direction="+direction);
 
             }
         });// end anonymous class and KeyListener
@@ -171,16 +172,16 @@ public class Player extends JPanel implements ActionListener {
         if (p.image == rz_still_right || p.image == rz_walk_right2) {
             for (int w = 0; w < bullets.size(); w++) {
                 m = (Bullet) bullets.get(w);
-                if (m.getVisible()) {
-                    m.moveR();
+                if (m.bsR.isVisible()) {
+                    m.bsR.moveR();
                 } else
                     bullets.remove(w);
             }
         } else if (p.image == rz_still_left || p.image == rz_walk_left2) {
             for (int x = 0; x < bulletss.size(); x++) {
                 m2 = (Bullet) bulletss.get(x);
-                if (m2.getVisible()) {
-                    m2.moveL();
+                if (m2.bsL.isVisible()) {
+                    m2.bsL.moveL();
                 } else
                     bulletss.remove(x);
             }
@@ -188,15 +189,15 @@ public class Player extends JPanel implements ActionListener {
 
         for (int w = 0; w < bulletss.size(); w++) {
             m2 = (Bullet) bulletss.get(w);
-            if (m2.getMovementL())
-                m2.moveL();
+            if (m2.bsL.getMovementL())
+                m2.bsL.moveL();
             else
                 bulletss.remove(w);
         }
         for (int w = 0; w < bullets.size(); w++) {
             m = (Bullet) bullets.get(w);
-            if (m.getMovementR())
-                m.moveR();
+            if (m.bsR.getMovementR())
+                m.bsR.moveR();
             else
                 bullets.remove(w);
         }
@@ -777,6 +778,95 @@ public class Player extends JPanel implements ActionListener {
 
             }
             //else System.out.println("OH BYE Mark! ");
+    }
+    public void checkCollisionsBR(Bullet m,Enemy enemy)
+    {
+        Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, map.back1.y+enemy.tankip.y, enemy.tankip.width,
+                enemy.tankip.height);
+        Rectangle heli  = new Rectangle(enemy.helip.x - map.back1.x, map.back1.y+enemy.helip.y, enemy.helip.width,
+                enemy.helip.height);
+        Rectangle zomb  = new Rectangle(enemy.zombik.x - map.back1.x, map.back1.y+enemy.zombik.y, enemy.zombik.width,
+                enemy.zombik.height);
+        if (tank.intersects(m.bsR.getBounds()))
+        {
+            if (enemy.tankip.isVisible())
+            {
+                m.bsR.setVisible(false);
+                enemy.takeDmgT();
+                enemy.checkEnemyLife();
+            }
+            System.out.println("tank == "+ enemy.tankHp);
+            //if (!enemy.tankip.isVisible())
+            //  point.Add_Points(100);
+        }
+        if (heli.intersects(m.bsR.getBounds()))
+        {
+            if (enemy.helip.isVisible())
+            {
+                m.bsR.setVisible(false);
+                enemy.takeDmgH();
+                enemy.checkEnemyLife();
+            }
+            System.out.println("heli == "+enemy.heliHp);
+            //if (!enemy.tankip.isVisible())
+            //  point.Add_Points(100);
+        }
+        if (zomb.intersects(m.bsR.getBounds()))
+        {
+            if (enemy.zombik.isVisible())
+            {
+                m.bsR.setVisible(false);
+                enemy.takeDmgZ();
+                enemy.checkEnemyLife();
+            }
+            System.out.println("zombie == "+enemy.zombieHp);
+            //if (!enemy.tankip.isVisible())
+            //  point.Add_Points(100);
+        }
+    }
+    public void checkCollisionsBL(Bullet m,Enemy enemy)
+    {
+        Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, map.back1.y+enemy.tankip.y, enemy.tankip.width,
+                enemy.tankip.height);
+        Rectangle heli  = new Rectangle(enemy.helip.x - map.back1.x, map.back1.y+enemy.helip.y, enemy.helip.width,
+                enemy.helip.height);
+        Rectangle zomb  = new Rectangle(enemy.zombik.x - map.back1.x, map.back1.y+enemy.zombik.y, enemy.zombik.width,
+                enemy.zombik.height);
+        if (tank.intersects(m.bsL.getBounds()))
+        {
+            if (enemy.tankip.isVisible())
+            {
+                m.bsL.setVisible(false);
+                enemy.takeDmgT();
+                enemy.checkEnemyLife();
+            }
+            //if (!enemy.tankip.isVisible())
+              //  point.Add_Points(100);
+        }
+        if (heli.intersects(m.bsL.getBounds()))
+        {
+            if (enemy.helip.isVisible())
+            {
+                m.bsL.setVisible(false);
+                enemy.takeDmgH();
+                enemy.checkEnemyLife();
+            }
+            System.out.println("heli == "+enemy.heliHp);
+            //if (!enemy.tankip.isVisible())
+            //  point.Add_Points(100);
+        }
+        if (zomb.intersects(m.bsL.getBounds()))
+        {
+            if (enemy.zombik.isVisible())
+            {
+                m.bsL.setVisible(false);
+                enemy.takeDmgZ();
+                enemy.checkEnemyLife();
+            }
+
+            //if (!enemy.tankip.isVisible())
+            //  point.Add_Points(100);
+        }
     }
 }
 

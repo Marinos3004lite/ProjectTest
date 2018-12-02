@@ -20,14 +20,40 @@ public class GamePanel extends Player
 
         public void colwithEnemy()
         {
-            Rectangle pl = p.getBounds();
-            //Rectangle tank  = tank1.tankip.getBounds();
-            Rectangle tank  = new Rectangle(enemy.tankip.x - map.back1.x, enemy.tankip.y, enemy.tankip.width,
-                    enemy.tankip.height);
+            if (enemy.tankip.isVisible())
+            {
+                Rectangle pl = p.getBounds();
+                //Rectangle tank  = tank1.tankip.getBounds();
+                Rectangle tank = new Rectangle(enemy.tankip.x - map.back1.x, map.back1.y + enemy.tankip.y, enemy.tankip.width,
+                        enemy.tankip.height);
 
-            if (pl.intersects(tank)){
-                enemy.giveDmg();
-                hp.takeDamage();
+                if (pl.intersects(tank)) {
+                    enemy.giveDmg();
+                    hp.takeDamage();
+                }
+            }
+            if (enemy.zombik.isVisible())
+            {
+                Rectangle pl = p.getBounds();
+                //Rectangle tank  = tank1.tankip.getBounds();
+                Rectangle zomb = new Rectangle(enemy.zombik.x - map.back1.x, enemy.zombik.y - map.back1.y, enemy.zombik.width,
+                        enemy.zombik.height);
+                if (pl.intersects(zomb)) {
+                    enemy.giveDmg();
+                    hp.takeDamage();
+                }
+            }
+            if (enemy.helip.isVisible())
+            {
+                Rectangle pl = p.getBounds();
+                //Rectangle tank  = tank1.tankip.getBounds();
+                Rectangle heli = new Rectangle(enemy.helip.x - map.back1.x, map.back1.y + enemy.helip.y, enemy.helip.width,
+                        enemy.helip.height);
+
+                if (pl.intersects(heli)) {
+                    enemy.giveDmg();
+                    hp.takeDamage();
+                }
             }
         }
 
@@ -41,7 +67,9 @@ public class GamePanel extends Player
         map.setBackground(g2d);
         ammo.paintComponent(g2d);
 
-        enemy.tankmove(g2d);
+        enemy.tankmove(g2d,map.back1.x,map.back1.y);
+        enemy.zombiemove(g2d,map.back1.x,map.back1.y);
+        enemy.helimove2(g2d,map.back1.x,map.back1.y);
 
         point.paintComponent(g2d);
 
@@ -117,13 +145,17 @@ public class GamePanel extends Player
         for (int w = 0; w < bulletsL.size(); w++)
         {
             Bullet m = (Bullet) bulletsL.get(w);
-            g2d.drawImage(m.getImageL(), (int) m.getX(), (int) m.getY(), null);
+            checkCollisionsBL(m,enemy);
+            g2d.drawImage(m.getImageL(), m.bsL.getX(), m.bsL.getY(), null);
+            //g2d.fillRect(m.bsL.getX(), m.bsL.getY(),m.bsL.width,m.bsL.height);
         }
         ArrayList bulletsR = getBulletsR();
         for (int w = 0; w < bulletsR.size(); w++)
         {
             Bullet m = (Bullet) bulletsR.get(w);
-            g2d.drawImage(m.getImageR(), (int) m.getX(), (int) m.getY(), null);
+            checkCollisionsBR(m,enemy);
+            g2d.drawImage(m.getImageR(), m.bsR.getX(), m.bsR.getY(), null);
+            //g2d.fillRect(m.bsR.getX(), m.bsR.getY(),m.bsR.width,m.bsR.height);
         }
         // TESTING
         /*Rectangle pl = p.getBounds();
@@ -161,9 +193,11 @@ public class GamePanel extends Player
         //System.out.println(tank);
         //g2d.fill(tank);
         //g2d.fill(pl);
+            //g2d.fillRect(enemy.helip.x - map.back1.x, enemy.helip.y - map.back1.y,enemy.helip.width,enemy.helip.height);
 
         //System.out.print("x = "+ (enemy.tankip.x));
         //System.out.println(" x2 = "+ (enemy.tankip.x - map.back1.x));
+
         colwithEnemy();
         checkCollisions();
         repaint();
