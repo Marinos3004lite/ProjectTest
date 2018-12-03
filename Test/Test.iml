@@ -7,6 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="junitlibraries" level="project" />
+    <orderEntry type="library" name="apiguardian-api-1.0.0-javadoc" level="project" />
   </component>
 </module>

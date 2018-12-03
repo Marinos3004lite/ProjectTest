@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HealthTest {
-
+    
     Health health = new Health();
     int hp = health.hp;
     int testHp = 300;

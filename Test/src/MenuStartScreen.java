@@ -20,6 +20,7 @@ public class MenuStartScreen{
     public JPanel panel;
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public Timer time;
+    public static int flag;
 
 
     public MenuStartScreen() {
@@ -82,6 +83,7 @@ public class MenuStartScreen{
         frame.setSize(1280, 720);
         frame.setVisible(true);
         frame.setLocation((int) (screenSize.getWidth() - frame.getSize().width) / 2, (int) (screenSize.getHeight() - frame.getSize().height) / 2);
+        flag=1;
     }
 
     private void createUIComponents()
